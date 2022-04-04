@@ -133,16 +133,7 @@ private extension GameViewController {
             playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230)
         ])
     }
-    
-//    let labels = [
-//        oneDotLabel,
-//        twoDotLabel,
-//        threeDotLabel,
-//        fourDotLabel,
-//        fiveDotLabel,
-//        sixDotLabel
-//    ]
-    
+
     func setupTitle() {
         title = "Игральная кость"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -181,35 +172,10 @@ private extension GameViewController {
         labels.forEach { $0.isHidden = true }
         chosenLabel?.isHidden = false
         playButton.setTitle("Повтор", for: .normal)
-        
-//        let result = Numbers.allCases.randomElement()
-//        switch result{
-//        case .one:
-//            oneDotLabel.isHidden = false
-//        case .two:
-//            twoDotLabel.isHidden = false
-//        case .three:
-//            threeDotLabel.isHidden = false
-//        case .four:
-//            fourDotLabel.isHidden = false
-//        case .five:
-//            fiveDotLabel.isHidden = false
-//        case .six:
-//            sixDotLabel.isHidden = false
-//        case .none:
-//            break
-//        }
     }
     
     func renewGame(){
         labels.forEach { $0.isHidden = false }
-//        oneDotLabel.isHidden = false
-//        twoDotLabel.isHidden = false
-//        threeDotLabel.isHidden = false
-//        fourDotLabel.isHidden = false
-//        fiveDotLabel.isHidden = false
-//        sixDotLabel.isHidden = false
         playButton.setTitle("Бросить кубик", for: .normal)
     }
-    
 }
