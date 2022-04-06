@@ -11,65 +11,54 @@ enum Numbers: CaseIterable{
     case one, two, three, four, five, six
 }
 
-class GameViewController: UIViewController {
+final class GameViewController: UIViewController {
     
-    var labels: [UILabel] = []
+    private var labels: [UILabel] = []
     
     private var oneDotLabel: UILabel = {
         let oneDotLabel = UILabel()
-        oneDotLabel.translatesAutoresizingMaskIntoConstraints = false
         oneDotLabel.text = "1️⃣"
-        oneDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
+        oneDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return oneDotLabel
     }()
     
     private var twoDotLabel: UILabel = {
         let twoDotLabel = UILabel()
-        twoDotLabel.translatesAutoresizingMaskIntoConstraints = false
         twoDotLabel.text = "2️⃣"
-        twoDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
-        
+        twoDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return twoDotLabel
     }()
+    
     private var threeDotLabel: UILabel = {
         let threeDotLabel = UILabel()
-        threeDotLabel.translatesAutoresizingMaskIntoConstraints = false
         threeDotLabel.text = "3️⃣"
-        threeDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
-        
+        threeDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return threeDotLabel
     }()
+    
     private var fourDotLabel: UILabel = {
         let fourDotLabel = UILabel()
-        fourDotLabel.translatesAutoresizingMaskIntoConstraints = false
         fourDotLabel.text = "4️⃣"
-        fourDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
-        
+        fourDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return fourDotLabel
     }()
+    
     private var fiveDotLabel: UILabel = {
         let fiveDotLabel = UILabel()
-        fiveDotLabel.translatesAutoresizingMaskIntoConstraints = false
         fiveDotLabel.text = "5️⃣"
-        fiveDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
-        
+        fiveDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return fiveDotLabel
     }()
     
     private var sixDotLabel: UILabel = {
         let sixDotLabel = UILabel()
-        sixDotLabel.translatesAutoresizingMaskIntoConstraints = false
         sixDotLabel.text = "6️⃣"
-        sixDotLabel.font = .systemFont(ofSize: 100, weight: .bold)
-        
+        sixDotLabel.font = .systemFont(ofSize: 90, weight: .bold)
         return sixDotLabel
     }()
     
     private lazy var playButton: UIButton = {
         let playButton = UIButton()
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-    
-        playButton.frame.size.width = 500
         playButton.setTitle("Бросить кубик", for: .normal)
         playButton.setTitleColor(.black, for: .normal)
         playButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
@@ -77,10 +66,9 @@ class GameViewController: UIViewController {
             self?.GameButton()
         }, for: .touchUpInside)
         playButton.layer.cornerRadius = 10.0
-        playButton.clipsToBounds = true
+        playButton.layer.masksToBounds = true
         playButton.layer.borderWidth = 4.0
         playButton.layer.borderColor = UIColor.systemTeal.cgColor
-        
         return playButton
     }()
 
@@ -96,41 +84,48 @@ class GameViewController: UIViewController {
 private extension GameViewController {
     
     private func addConstraints(){
+        oneDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        twoDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        threeDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        fourDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        fiveDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        sixDotLabel.translatesAutoresizingMaskIntoConstraints = false
+        playButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             oneDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -85),
-            oneDotLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -175),
-            oneDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            oneDotLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -125),
+            oneDotLabel.widthAnchor.constraint(equalToConstant: 100),
             oneDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             
             twoDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -85),
-            twoDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            twoDotLabel.widthAnchor.constraint(equalToConstant: 100),
             twoDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             twoDotLabel.topAnchor.constraint(equalTo: oneDotLabel.bottomAnchor),
             
             threeDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -85),
-            threeDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            threeDotLabel.widthAnchor.constraint(equalToConstant: 100),
             threeDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             threeDotLabel.topAnchor.constraint(equalTo: twoDotLabel.bottomAnchor),
             
             fourDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 85),
-            fourDotLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -175),
-            fourDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            fourDotLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -125),
+            fourDotLabel.widthAnchor.constraint(equalToConstant: 100),
             fourDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             
             fiveDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 85),
-            fiveDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            fiveDotLabel.widthAnchor.constraint(equalToConstant: 100),
             fiveDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             fiveDotLabel.topAnchor.constraint(equalTo: fourDotLabel.bottomAnchor),
             
             sixDotLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 85),
-            sixDotLabel.widthAnchor.constraint(equalToConstant: 110),
+            sixDotLabel.widthAnchor.constraint(equalToConstant: 100),
             sixDotLabel.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
             sixDotLabel.topAnchor.constraint(equalTo: fiveDotLabel.bottomAnchor),
             
             playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playButton.heightAnchor.constraint(equalToConstant: 60),
             playButton.widthAnchor.constraint(equalToConstant: 250),
-            playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230)
+            playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 190)
         ])
     }
 
@@ -159,7 +154,8 @@ private extension GameViewController {
     }
     
     func GameButton(){
-        if playButton.currentTitle == "Бросить кубик"{
+        playButton.isSelected = !playButton.isSelected
+        if !playButton.isSelected {
             rollTheDice()
         }
         else {

@@ -8,18 +8,38 @@
 import UIKit
 
 struct russianGame: Translatable{
-    var ruTextDict: [String] = ["Ничья😐", "Вы проиграли🥺", "Вы победили😎"]
+    let tie = "Ничья😐"
+    let bot = "Вы проиграли🥺"
+    let player = "Вы победили😎"
     
     func getText(_ res: Int) -> String{
-        return ruTextDict[res]
+        if res == 0{
+            return tie
+        }
+        else if res == 1{
+            return bot
+        }
+        else {
+            return player
+        }
     }
 }
 
 struct englishGame: Translatable{
-var enTextDict: [String] = ["It's a tie😐", "You lost🥺", "You won😎"]
+    let tie = "It's a tie😐"
+    let bot = "You lost🥺"
+    let player = "You won😎"
     
-    func getText(_ res: Int) -> String {
-        return enTextDict[res]
+    func getText(_ res: Int) -> String{
+        if res == 0{
+            return tie
+        }
+        else if res == 1{
+            return bot
+        }
+        else {
+            return player
+        }
     }
 }
 

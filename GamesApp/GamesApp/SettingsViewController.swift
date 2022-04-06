@@ -15,22 +15,20 @@ protocol SettingsViewControllerDelegate: AnyObject {
 class SettingsViewController: UIViewController{
     
     let defaults = UserDefaults.standard
-    
     weak var delegate: SettingsViewControllerDelegate?
     
     private let changeLangLabel: UILabel = {
         let changeLangLabel = UILabel()
-        changeLangLabel.translatesAutoresizingMaskIntoConstraints = false
         changeLangLabel.text = "Установить английский язык"
         changeLangLabel.font = .systemFont(ofSize: 21, weight: .regular)
+        changeLangLabel.lineBreakMode = .byWordWrapping
+        changeLangLabel.numberOfLines = 0
         return changeLangLabel
     }()
     
     private lazy var langSwitchButton: UIButton = {
         let langSwitchButton = UIButton()
         langSwitchButton.backgroundColor = .white
-        langSwitchButton.frame.size.width = 60
-        langSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         langSwitchButton.setImage(
                     UIImage(
                         systemName: (defaults.bool(forKey: "langState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
@@ -45,7 +43,6 @@ class SettingsViewController: UIViewController{
     
     private var enableTieLabel: UILabel = {
         let enableTieLabel = UILabel()
-        enableTieLabel.translatesAutoresizingMaskIntoConstraints = false
         enableTieLabel.text = "Включить режим возможной ничьи"
         enableTieLabel.font = .systemFont(ofSize: 21, weight: .regular)
         enableTieLabel.lineBreakMode = .byWordWrapping
@@ -56,8 +53,6 @@ class SettingsViewController: UIViewController{
     private lazy var tieSwitchButton: UIButton = {
         let tieSwitchButton = UIButton()
         tieSwitchButton.backgroundColor = .white
-        tieSwitchButton.frame.size.width = 60
-        tieSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         tieSwitchButton.setImage(
                     UIImage(
                         systemName: (defaults.bool(forKey: "tieState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
@@ -67,7 +62,6 @@ class SettingsViewController: UIViewController{
         tieSwitchButton.addAction(UIAction() { [weak self] _ in
             self?.didPressTieButton()
         }, for: .touchUpInside)
-        
         return tieSwitchButton
     }()
     
@@ -95,9 +89,14 @@ private extension SettingsViewController {
     }
     
     private func addConstraints(){
+        changeLangLabel.translatesAutoresizingMaskIntoConstraints = false
+        enableTieLabel.translatesAutoresizingMaskIntoConstraints = false
+        langSwitchButton.translatesAutoresizingMaskIntoConstraints = false
+        tieSwitchButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             changeLangLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -70),
-            changeLangLabel.heightAnchor.constraint(equalToConstant: 50),
+            changeLangLabel.heightAnchor.constraint(equalToConstant: 80),
             changeLangLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             changeLangLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
             changeLangLabel.heightAnchor.constraint(equalToConstant: 60),
@@ -110,9 +109,12 @@ private extension SettingsViewController {
             langSwitchButton.centerYAnchor.constraint(equalTo: changeLangLabel.centerYAnchor),
             langSwitchButton.leftAnchor.constraint(equalTo: changeLangLabel.rightAnchor, constant: 10),
             langSwitchButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+            langSwitchButton.widthAnchor.constraint(equalToConstant: 60),
             
             tieSwitchButton.centerYAnchor.constraint(equalTo: enableTieLabel.centerYAnchor),
-            tieSwitchButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20)
+            tieSwitchButton.leftAnchor.constraint(equalTo: changeLangLabel.rightAnchor, constant: 10),
+            tieSwitchButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+            tieSwitchButton.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
     

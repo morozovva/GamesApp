@@ -10,63 +10,51 @@ import UIKit
 class RPSViewController: UIViewController {
     
     private var dictionary: Translatable = russianGame()
-    var tieState: Bool = true
+    private var tieState: Bool = true
     
     enum Objects: CaseIterable{
         case rock, paper, scissors
     }
     
-    let rockImage = UIImage(named: "rock.png")!
-    let paperImage = UIImage(named: "paper.png")!
-    let scissorsImage = UIImage(named: "scissors.png")!
+    let rockImage = UIImage(named: "rock.png")
+    let paperImage = UIImage(named: "paper.png")
+    let scissorsImage = UIImage(named: "scissors.png")
     
     private lazy var rockButton: UIButton = {
         let rockButton = UIButton()
-        rockButton.translatesAutoresizingMaskIntoConstraints = false
         rockButton.setImage(rockImage, for: .normal)
-        rockButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
-        rockButton.imageView?.tintColor = .red
         rockButton.addAction(UIAction() { [weak self] _ in
             self?.playTheGame(choise: .rock)
         }, for: .touchUpInside)
-            
             return rockButton
         }()
     
     private lazy var paperButton: UIButton = {
         let paperButton = UIButton()
-        paperButton.translatesAutoresizingMaskIntoConstraints = false
         paperButton.setImage(paperImage, for: .normal)
-        paperButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         paperButton.addAction(UIAction() { [weak self] _ in
             self?.playTheGame(choise: .paper)
         }, for: .touchUpInside)
-            
             return paperButton
         }()
     
     private lazy var scissorsButton: UIButton = {
         let scissorsButton = UIButton()
-        scissorsButton.translatesAutoresizingMaskIntoConstraints = false
         scissorsButton.setImage(scissorsImage, for: .normal)
-        scissorsButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         scissorsButton.addAction(UIAction() { [weak self] _ in
             self?.playTheGame(choise: .scissors)
         }, for: .touchUpInside)
-            
             return scissorsButton
         }()
     
     private var winnerLabel: UILabel = {
         let winnerLabel = UILabel()
-        winnerLabel.translatesAutoresizingMaskIntoConstraints = false
         winnerLabel.font = .systemFont(ofSize: 30, weight: .bold)
         return winnerLabel
     }()
     
     private var botsChoise: UILabel = {
         let botsChoise = UILabel()
-        botsChoise.translatesAutoresizingMaskIntoConstraints = false
         botsChoise.font = .systemFont(ofSize: 100, weight: .bold)
         return botsChoise
     }()
@@ -74,8 +62,6 @@ class RPSViewController: UIViewController {
     private lazy var restartButton: UIButton = {
         let restartButton = UIButton()
         restartButton.backgroundColor = .white
-        restartButton.frame.size.width = 500
-        restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.setTitle("Начать заново", for: .normal)
         restartButton.setTitleColor(.black, for: .normal)
         restartButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
@@ -83,10 +69,9 @@ class RPSViewController: UIViewController {
             self?.restart()
         }, for: .touchUpInside)
         restartButton.layer.cornerRadius = 10.0
-        restartButton.clipsToBounds = true
+        restartButton.layer.masksToBounds = true
         restartButton.layer.borderWidth = 4.0
         restartButton.layer.borderColor = UIColor.systemTeal.cgColor
-        
         return restartButton
     }()
     
@@ -121,6 +106,13 @@ extension RPSViewController: SettingsViewControllerDelegate {
 private extension RPSViewController {
     
     private func addConstraints() {
+        rockButton.translatesAutoresizingMaskIntoConstraints = false
+        paperButton.translatesAutoresizingMaskIntoConstraints = false
+        scissorsButton.translatesAutoresizingMaskIntoConstraints = false
+        winnerLabel.translatesAutoresizingMaskIntoConstraints = false
+        botsChoise.translatesAutoresizingMaskIntoConstraints = false
+        restartButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             rockButton.rightAnchor.constraint(equalTo: paperButton.leftAnchor),
             rockButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -142,7 +134,7 @@ private extension RPSViewController {
             winnerLabel.heightAnchor.constraint(equalToConstant: 200),
 
             botsChoise.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            botsChoise.topAnchor.constraint(equalTo: paperButton.bottomAnchor),
+            botsChoise.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             botsChoise.heightAnchor.constraint(equalToConstant: 180),
 
             restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -179,19 +171,19 @@ private extension RPSViewController {
     }
     
     func restart(){
-        rockButton.isEnabled = true
-        paperButton.isEnabled = true
-        scissorsButton.isEnabled = true
+        rockButton.isHidden = false
+        paperButton.isHidden = false
+        scissorsButton.isHidden = false
         botsChoise.isHidden = true
         winnerLabel.isHidden = true
         restartButton.isHidden = true
     }
     
     func playTheGame(choise: Objects){
-        rockButton.isEnabled = false
-        paperButton.isEnabled = false
-        scissorsButton.isEnabled = false
-        restartButton.isEnabled = true
+        rockButton.isHidden = true
+        paperButton.isHidden = true
+        scissorsButton.isHidden = true
+        restartButton.isHidden = false
         botsChoise.isHidden = false
         winnerLabel.isHidden = false
         restartButton.isHidden = false
@@ -199,21 +191,17 @@ private extension RPSViewController {
     }
     
     func RPCGame(choise: Objects, tiestate: Bool) -> String{
-        let botChoise: Objects
-        if tieState == false {
-            botChoise = Objects.allCases.randomElement()!
+        var botChoise: Objects = .rock
+        if !tieState {
+            if let temp = Objects.allCases.randomElement() {
+                botChoise = temp
+            }
         }
         else {
-            switch choise {
-            case .rock:
-                let arr = [Objects.paper, Objects.scissors]
-                botChoise = arr.randomElement()!
-            case .paper:
-                let arr = [Objects.rock, Objects.scissors]
-                botChoise = arr.randomElement()!
-            case .scissors:
-                let arr = [Objects.paper, Objects.rock]
-                botChoise = arr.randomElement()!
+            while botChoise == choise {
+                if let temp = Objects.allCases.randomElement() {
+                    botChoise = temp
+                }
             }
         }
         switch botChoise{
@@ -224,34 +212,14 @@ private extension RPSViewController {
         case .scissors:
             botsChoise.text = "✌🏻"
         }
-        switch choise {
-        case .rock:
-            switch botChoise {
-            case .rock:
-                return dictionary.getText(0)
-            case .paper:
-                return dictionary.getText(1)
-            case .scissors:
-                return dictionary.getText(2)
-            }
-        case .paper:
-            switch botChoise {
-            case .rock:
-                return dictionary.getText(2)
-            case .paper:
-                return dictionary.getText(0)
-            case .scissors:
-                return dictionary.getText(1)
-            }
-        case .scissors:
-            switch botChoise {
-            case .rock:
-                return dictionary.getText(1)
-            case .paper:
-                return dictionary.getText(2)
-            case .scissors:
-                return dictionary.getText(0)
-            }
+        let gameTuple = (player: choise, bot: botChoise)
+        switch gameTuple{
+        case (.rock, .rock), (.paper, .paper), (.scissors, .scissors):
+            return dictionary.getText(0)
+        case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):
+            return dictionary.getText(2)
+        case (.rock, .paper), (.paper, .scissors), (.scissors, .rock):
+            return dictionary.getText(1)
         }
     }
     
@@ -261,4 +229,3 @@ private extension RPSViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
