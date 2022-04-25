@@ -7,13 +7,25 @@
 
 import UIKit
 
+protocol RPSViewControllerDelegate: AnyObject {
+    func getRPSData(personRes: String, pcRes: String, RPSRes: String)
+    func getBestSet(number: Int)
+}
+
 class RPSViewController: UIViewController {
+    
+    private var bestSetCounter: Int = 0
+    private var bestSetSaver: Int = 0
+
+    weak var RPSDelegate: RPSViewControllerDelegate?
     
     private var dictionary: Translatable = russianGame()
     private var tieState: Bool = true
     
-    enum Objects: CaseIterable{
-        case rock, paper, scissors
+    enum Objects: String, CaseIterable{
+        case rock = "✊🏻"
+        case paper = "✋🏻"
+        case scissors = "✌🏻"
     }
     
     let rockImage = UIImage(named: "rock.png")
@@ -213,14 +225,24 @@ private extension RPSViewController {
             botsChoise.text = "✌🏻"
         }
         let gameTuple = (player: choise, bot: botChoise)
+        let RPSRes: String
         switch gameTuple{
         case (.rock, .rock), (.paper, .paper), (.scissors, .scissors):
-            return dictionary.getText(0)
+            RPSRes = dictionary.getText(0)
+            bestSetCounter = 0
         case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):
-            return dictionary.getText(2)
+            bestSetCounter+=1
+            if bestSetCounter>bestSetSaver{
+                bestSetSaver = bestSetCounter
+            }
+            RPSRes = dictionary.getText(2)
         case (.rock, .paper), (.paper, .scissors), (.scissors, .rock):
-            return dictionary.getText(1)
+            bestSetCounter = 0
+            RPSRes = dictionary.getText(1)
         }
+        RPSDelegate?.getRPSData(personRes: choise.rawValue, pcRes: botsChoise.text!, RPSRes: RPSRes)
+        RPSDelegate?.getBestSet(number: bestSetSaver)
+        return RPSRes
     }
     
     func openSettings() {
