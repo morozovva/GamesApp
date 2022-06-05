@@ -9,7 +9,6 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -24,10 +23,16 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.isOpaque = true
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor = .systemTeal
+        appearance.stackedLayoutAppearance.normal.iconColor = .lightText
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.lightText]
+            
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .white
-        tabBar.backgroundColor = .systemTeal
+        tabBar.isOpaque = true
         setupTabBar()
     }
 }
@@ -35,12 +40,24 @@ class TabBarController: UITabBarController {
 private extension TabBarController {
     
     func setupTabBar() {
+        let historyViewController = HistoryViewController()
+        let RPSController = RPSViewController()
+        let diceViewController = GameViewController()
+        
+        RPSController.RPSDelegate = historyViewController
+        diceViewController.diceDelegate = historyViewController
+        
         let navCRPS = NavigationController(
-            rootViewController: RPSViewController()
+            rootViewController: RPSController
         )
         let navCDice = NavigationController(
-            rootViewController: GameViewController()
+            rootViewController: diceViewController
         )
+        let navCHistory = NavigationController(
+            rootViewController: historyViewController
+        )
+        let navCRocket = NavigationController(
+            rootViewController: RocketViewController())
         
         let configuration = UIImage.SymbolConfiguration(
             pointSize: 20, weight: .semibold
@@ -58,6 +75,17 @@ private extension TabBarController {
             tag: 1)
         navCDice.tabBarItem.selectedImage = UIImage(systemName: "cube.fill", withConfiguration: configuration)
         
-        setViewControllers([navCRPS, navCDice], animated: false)
+        navCHistory.tabBarItem = UITabBarItem(
+            title: "История",
+            image: UIImage(systemName: "info.circle"),
+            tag: 1)
+        navCHistory.tabBarItem.selectedImage = UIImage(systemName: "info.circle.fill", withConfiguration: configuration)
+        
+        navCRocket.tabBarItem = UITabBarItem(
+            title: "Ракета",
+            image: UIImage(systemName: "sparkles"),
+            tag: 1)
+        
+        setViewControllers([navCRPS, navCDice, navCHistory, navCRocket], animated: false)
     }
 }

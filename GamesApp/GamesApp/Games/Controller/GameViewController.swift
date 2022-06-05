@@ -11,7 +11,21 @@ enum Numbers: CaseIterable{
     case one, two, three, four, five, six
 }
 
+protocol GameViewControllerDelegate: AnyObject {
+    func getDiceHistory(diceData: String)
+    func getDiceStats(one: Double, two: Double, three: Double, four: Double, five: Double, six: Double)
+}
+
 final class GameViewController: UIViewController {
+    
+    weak var diceDelegate: GameViewControllerDelegate?
+    private var allDiceCounter: Double = 0
+    private var oneCounter: Double = 0
+    private var twoCounter: Double = 0
+    private var threeCounter: Double = 0
+    private var fourCounter: Double = 0
+    private var fiveCounter: Double = 0
+    private var sixCounter: Double = 0
     
     private var labels: [UILabel] = []
     
@@ -164,9 +178,36 @@ private extension GameViewController {
     }
     
     func rollTheDice(){
-        let chosenLabel = labels.randomElement()
+        guard let chosenLabel = labels.randomElement() else {return}
+        guard let result = chosenLabel.text else {return}
+        diceDelegate?.getDiceHistory(diceData: result)
+        allDiceCounter += 1
+        switch chosenLabel {
+        case oneDotLabel:
+            oneCounter += 1
+        case twoDotLabel:
+            twoCounter += 1
+        case threeDotLabel:
+            threeCounter += 1
+        case fourDotLabel:
+            fourCounter += 1
+        case fiveDotLabel:
+            fiveCounter += 1
+        case sixDotLabel:
+            sixCounter += 1
+        default:
+            break
+        }
+        diceDelegate?.getDiceStats(
+            one: oneCounter/allDiceCounter,
+            two: twoCounter/allDiceCounter,
+            three: threeCounter/allDiceCounter,
+            four: fourCounter/allDiceCounter,
+            five: fiveCounter/allDiceCounter,
+            six: sixCounter/allDiceCounter)
+        
         labels.forEach { $0.isHidden = true }
-        chosenLabel?.isHidden = false
+        chosenLabel.isHidden = false
         playButton.setTitle("Повтор", for: .normal)
     }
     

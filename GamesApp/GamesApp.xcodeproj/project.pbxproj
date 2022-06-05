@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52107F962807FEDF008B642F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107F952807FEDF008B642F /* HistoryViewController.swift */; };
+		52107F9C280801EA008B642F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107F9B280801EA008B642F /* HistoryView.swift */; };
+		52107F9E280803DF008B642F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107F9D280803DF008B642F /* DataStore.swift */; };
+		52107FA028082D18008B642F /* BestGameSetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107F9F28082D18008B642F /* BestGameSetConfiguration.swift */; };
+		52107FA228082EB9008B642F /* HistoryCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107FA128082EB9008B642F /* HistoryCollectionItem.swift */; };
+		52107FA52808331A008B642F /* CollectionViewLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */; };
+		52107FA728089F0E008B642F /* RPSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107FA628089F0E008B642F /* RPSConfiguration.swift */; };
+		52107FAA28097E5C008B642F /* DiceSetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107FA928097E5C008B642F /* DiceSetConfiguration.swift */; };
+		52107FB7280D7D6B008B642F /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52107FB6280D7D6B008B642F /* HeaderCollectionReusableView.swift */; };
 		522993E027F37ACA0032279A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993DF27F37ACA0032279A /* AppDelegate.swift */; };
 		522993E227F37ACA0032279A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993E127F37ACA0032279A /* SceneDelegate.swift */; };
 		522993E927F37ACD0032279A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522993E827F37ACD0032279A /* Assets.xcassets */; };
@@ -17,9 +26,21 @@
 		522993FA27F45E190032279A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F927F45E190032279A /* GameViewController.swift */; };
 		5229940427F58F560032279A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940327F58F550032279A /* SettingsViewController.swift */; };
 		5229940827F860EA0032279A /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940727F860EA0032279A /* Dictionaries.swift */; };
+		5237DB162817052400FE5802 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB132817052400FE5802 /* RocketViewController.swift */; };
+		5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB142817052400FE5802 /* RocketViewExtension.swift */; };
+		5237DB182817052400FE5802 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB152817052400FE5802 /* RocketView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52107F952807FEDF008B642F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		52107F9B280801EA008B642F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		52107F9D280803DF008B642F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		52107F9F28082D18008B642F /* BestGameSetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestGameSetConfiguration.swift; sourceTree = "<group>"; };
+		52107FA128082EB9008B642F /* HistoryCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionItem.swift; sourceTree = "<group>"; };
+		52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutFactory.swift; sourceTree = "<group>"; };
+		52107FA628089F0E008B642F /* RPSConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSConfiguration.swift; sourceTree = "<group>"; };
+		52107FA928097E5C008B642F /* DiceSetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSetConfiguration.swift; sourceTree = "<group>"; };
+		52107FB6280D7D6B008B642F /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		522993DC27F37ACA0032279A /* GamesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522993DF27F37ACA0032279A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522993E127F37ACA0032279A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +53,9 @@
 		522993F927F45E190032279A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5229940327F58F550032279A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5229940727F860EA0032279A /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
+		5237DB132817052400FE5802 /* RocketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
+		5237DB142817052400FE5802 /* RocketViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewExtension.swift; sourceTree = "<group>"; };
+		5237DB152817052400FE5802 /* RocketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +69,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52107F97280800A6008B642F /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				52107FAD280AACF7008B642F /* Data */,
+				52107F98280800BC008B642F /* Controller */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		52107F98280800BC008B642F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				522993F727F45DB50032279A /* RPSViewController.swift */,
+				522993F927F45E190032279A /* GameViewController.swift */,
+				5229940327F58F550032279A /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52107F992808016D008B642F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52107F9B280801EA008B642F /* HistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52107F9A280801B0008B642F /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				52107F9D280803DF008B642F /* DataStore.swift */,
+				52107FA128082EB9008B642F /* HistoryCollectionItem.swift */,
+				52107F9F28082D18008B642F /* BestGameSetConfiguration.swift */,
+				52107FA628089F0E008B642F /* RPSConfiguration.swift */,
+				52107FA928097E5C008B642F /* DiceSetConfiguration.swift */,
+				52107FB6280D7D6B008B642F /* HeaderCollectionReusableView.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		52107FA3280832F1008B642F /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		52107FAB280AAC69008B642F /* History */ = {
+			isa = PBXGroup;
+			children = (
+				52107FAC280AACAE008B642F /* Controller */,
+				52107F992808016D008B642F /* View */,
+				52107FA3280832F1008B642F /* UIKit */,
+				52107F9A280801B0008B642F /* DataStore */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		52107FAC280AACAE008B642F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52107F952807FEDF008B642F /* HistoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52107FAD280AACF7008B642F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5229940727F860EA0032279A /* Dictionaries.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		522993D327F37ACA0032279A = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +163,9 @@
 		522993DE27F37ACA0032279A /* GamesApp */ = {
 			isa = PBXGroup;
 			children = (
+				5237DB122817052300FE5802 /* Rocket */,
+				52107FAB280AAC69008B642F /* History */,
+				52107F97280800A6008B642F /* Games */,
 				522993DF27F37ACA0032279A /* AppDelegate.swift */,
 				522993E127F37ACA0032279A /* SceneDelegate.swift */,
 				522993E827F37ACD0032279A /* Assets.xcassets */,
@@ -71,12 +173,18 @@
 				522993ED27F37ACD0032279A /* Info.plist */,
 				522993F327F45D150032279A /* TabBarController.swift */,
 				522993F527F45D710032279A /* NavigationController.swift */,
-				522993F727F45DB50032279A /* RPSViewController.swift */,
-				5229940327F58F550032279A /* SettingsViewController.swift */,
-				522993F927F45E190032279A /* GameViewController.swift */,
-				5229940727F860EA0032279A /* Dictionaries.swift */,
 			);
 			path = GamesApp;
+			sourceTree = "<group>";
+		};
+		5237DB122817052300FE5802 /* Rocket */ = {
+			isa = PBXGroup;
+			children = (
+				5237DB132817052400FE5802 /* RocketViewController.swift */,
+				5237DB142817052400FE5802 /* RocketViewExtension.swift */,
+				5237DB152817052400FE5802 /* RocketView.swift */,
+			);
+			path = Rocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,10 +261,22 @@
 				522993F627F45D710032279A /* NavigationController.swift in Sources */,
 				522993F827F45DB50032279A /* RPSViewController.swift in Sources */,
 				5229940827F860EA0032279A /* Dictionaries.swift in Sources */,
+				52107F9E280803DF008B642F /* DataStore.swift in Sources */,
+				52107FA52808331A008B642F /* CollectionViewLayoutFactory.swift in Sources */,
 				522993E027F37ACA0032279A /* AppDelegate.swift in Sources */,
 				522993FA27F45E190032279A /* GameViewController.swift in Sources */,
+				52107F962807FEDF008B642F /* HistoryViewController.swift in Sources */,
+				52107F9C280801EA008B642F /* HistoryView.swift in Sources */,
+				5237DB182817052400FE5802 /* RocketView.swift in Sources */,
+				5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */,
+				52107FA028082D18008B642F /* BestGameSetConfiguration.swift in Sources */,
 				522993E227F37ACA0032279A /* SceneDelegate.swift in Sources */,
+				52107FA228082EB9008B642F /* HistoryCollectionItem.swift in Sources */,
 				5229940427F58F560032279A /* SettingsViewController.swift in Sources */,
+				5237DB162817052400FE5802 /* RocketViewController.swift in Sources */,
+				52107FB7280D7D6B008B642F /* HeaderCollectionReusableView.swift in Sources */,
+				52107FAA28097E5C008B642F /* DiceSetConfiguration.swift in Sources */,
+				52107FA728089F0E008B642F /* RPSConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
