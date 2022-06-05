@@ -7,27 +7,32 @@
 
 import UIKit
 
-protocol RPSViewControllerDelegate: AnyObject {
-    func getRPSData(personRes: String, pcRes: String, RPSRes: String)
-    func getBestSet(number: Int)
+
+protocol RPSDisplayLogic: AnyObject {
+    func getRPS(viewModel: RPSModels.Game.ViewModel)
 }
 
-class RPSViewController: UIViewController {
+class RPSViewController: UIViewController{
     
-    private var bestSetCounter: Int = 0
-    private var bestSetSaver: Int = 0
-
-    weak var RPSDelegate: RPSViewControllerDelegate?
+  var interactor: RPSBusinessLogic?
+  var router: (RPSRoutingLogic & RPSDataPassing)?
     
-    private var dictionary: Translatable = russianGame()
-    private var tieState: Bool = true
-    
-    enum Objects: String, CaseIterable{
-        case rock = "✊🏻"
-        case paper = "✋🏻"
-        case scissors = "✌🏻"
-    }
-    
+  // MARK: Setup
+  
+  private func setup()
+  {
+    let viewController = self
+    let interactor = RPSInteractor()
+    let presenter = RPSPresenter()
+    let router = RPSRouter()
+      viewController.interactor = interactor
+    viewController.router = router
+    interactor.presenter = presenter
+    presenter.viewController = viewController
+    router.viewController = viewController
+    router.dataStore = interactor
+  }
+  
     let rockImage = UIImage(named: "rock.png")
     let paperImage = UIImage(named: "paper.png")
     let scissorsImage = UIImage(named: "scissors.png")
@@ -36,7 +41,7 @@ class RPSViewController: UIViewController {
         let rockButton = UIButton()
         rockButton.setImage(rockImage, for: .normal)
         rockButton.addAction(UIAction() { [weak self] _ in
-            self?.playTheGame(choise: .rock)
+            self?.playButtonAction(choise: .rock)
         }, for: .touchUpInside)
             return rockButton
         }()
@@ -45,7 +50,7 @@ class RPSViewController: UIViewController {
         let paperButton = UIButton()
         paperButton.setImage(paperImage, for: .normal)
         paperButton.addAction(UIAction() { [weak self] _ in
-            self?.playTheGame(choise: .paper)
+            self?.playButtonAction(choise: .paper)
         }, for: .touchUpInside)
             return paperButton
         }()
@@ -54,7 +59,7 @@ class RPSViewController: UIViewController {
         let scissorsButton = UIButton()
         scissorsButton.setImage(scissorsImage, for: .normal)
         scissorsButton.addAction(UIAction() { [weak self] _ in
-            self?.playTheGame(choise: .scissors)
+            self?.playButtonAction(choise: .scissors)
         }, for: .touchUpInside)
             return scissorsButton
         }()
@@ -89,33 +94,14 @@ class RPSViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupNavigationBarIfPossible()
         setupView()
         addConstraints()
     }
 }
 
-extension RPSViewController: SettingsViewControllerDelegate {
-    func languageButtonDidTap(_ state: Bool) {
-        switch state{
-        case true:
-            dictionary = russianGame()
-        case false:
-            dictionary = englishGame()
-        }
-    }
-    
-    func tieButtonDidTap(_ state: Bool){
-        switch state{
-        case true:
-            tieState = true
-        case false:
-            tieState = false
-        }
-    }
-}
-
-private extension RPSViewController {
+private extension RPSViewController{
     
     private func addConstraints() {
         rockButton.translatesAutoresizingMaskIntoConstraints = false
@@ -166,7 +152,7 @@ private extension RPSViewController {
             for: .normal)
         settingsButton.imageView?.tintColor = .black
         settingsButton.addAction(UIAction() { [weak self] _ in
-            self?.openSettings()
+            self?.settingsButtonAction()
         }, for: .touchUpInside)
         navigationItem.rightBarButtonItems = [ UIBarButtonItem(customView: settingsButton)]
     }
@@ -182,6 +168,15 @@ private extension RPSViewController {
         restartButton.isHidden = true
     }
     
+    func settingsButtonAction(){
+        router?.routeToSettings()
+    }
+    
+    func playButtonAction(choise: Objects){
+        let request = RPSModels.Game.Request(choise: choise)
+        interactor?.playRPS(request: request)
+    }
+    
     func restart(){
         rockButton.isHidden = false
         paperButton.isHidden = false
@@ -190,8 +185,11 @@ private extension RPSViewController {
         winnerLabel.isHidden = true
         restartButton.isHidden = true
     }
+}
+
+extension RPSViewController: RPSDisplayLogic {
     
-    func playTheGame(choise: Objects){
+    func getRPS(viewModel: RPSModels.Game.ViewModel) {
         rockButton.isHidden = true
         paperButton.isHidden = true
         scissorsButton.isHidden = true
@@ -199,55 +197,8 @@ private extension RPSViewController {
         botsChoise.isHidden = false
         winnerLabel.isHidden = false
         restartButton.isHidden = false
-        winnerLabel.text = RPCGame(choise: choise, tiestate: tieState)
-    }
-    
-    func RPCGame(choise: Objects, tiestate: Bool) -> String{
-        var botChoise: Objects = .rock
-        if !tieState {
-            if let temp = Objects.allCases.randomElement() {
-                botChoise = temp
-            }
-        }
-        else {
-            while botChoise == choise {
-                if let temp = Objects.allCases.randomElement() {
-                    botChoise = temp
-                }
-            }
-        }
-        switch botChoise{
-        case .rock:
-            botsChoise.text = "✊🏻"
-        case .paper:
-            botsChoise.text = "✋🏻"
-        case .scissors:
-            botsChoise.text = "✌🏻"
-        }
-        let gameTuple = (player: choise, bot: botChoise)
-        let RPSRes: String
-        switch gameTuple{
-        case (.rock, .rock), (.paper, .paper), (.scissors, .scissors):
-            RPSRes = dictionary.getText(0)
-            bestSetCounter = 0
-        case (.rock, .scissors), (.paper, .rock), (.scissors, .paper):
-            bestSetCounter+=1
-            if bestSetCounter>bestSetSaver{
-                bestSetSaver = bestSetCounter
-            }
-            RPSRes = dictionary.getText(2)
-        case (.rock, .paper), (.paper, .scissors), (.scissors, .rock):
-            bestSetCounter = 0
-            RPSRes = dictionary.getText(1)
-        }
-        RPSDelegate?.getRPSData(personRes: choise.rawValue, pcRes: botsChoise.text!, RPSRes: RPSRes)
-        RPSDelegate?.getBestSet(number: bestSetSaver)
-        return RPSRes
-    }
-    
-    func openSettings() {
-        let vc = SettingsViewController()
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
+        winnerLabel.text = viewModel.gameResult
+        botsChoise.text = viewModel.botsChoise
+        router?.passRPSResToHistory()
     }
 }

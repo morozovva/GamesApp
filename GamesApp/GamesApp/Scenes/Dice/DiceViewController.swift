@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  DiceViewController.swift
 //  GamesApp
 //
 //  Created by xyz mac on 30.03.2022.
@@ -7,25 +7,51 @@
 
 import UIKit
 
-enum Numbers: CaseIterable{
+enum Numbers: Int, CaseIterable{
     case one, two, three, four, five, six
-}
-
-protocol GameViewControllerDelegate: AnyObject {
-    func getDiceHistory(diceData: String)
-    func getDiceStats(one: Double, two: Double, three: Double, four: Double, five: Double, six: Double)
-}
-
-final class GameViewController: UIViewController {
     
-    weak var diceDelegate: GameViewControllerDelegate?
-    private var allDiceCounter: Double = 0
-    private var oneCounter: Double = 0
-    private var twoCounter: Double = 0
-    private var threeCounter: Double = 0
-    private var fourCounter: Double = 0
-    private var fiveCounter: Double = 0
-    private var sixCounter: Double = 0
+    func getEmoji() -> String {
+        switch self {
+        case .one:
+            return "1️⃣"
+        case .two:
+            return "2️⃣"
+        case .three:
+            return "3️⃣"
+        case .four:
+            return "4️⃣"
+        case .five:
+            return "5️⃣"
+        case .six:
+            return "6️⃣"
+        }
+    }
+}
+
+protocol DiceDisplayLogic: AnyObject {
+    func getTheDice(viewModel: DiceModels.States.ViewModel.Play)
+    func revertDice(viewModel: DiceModels.States.ViewModel)
+}
+
+class DiceViewController: UIViewController {
+    
+    var interactor: DiceBusinessLogic?
+    var router: DiceDataPassing?
+    
+    private func setup() {
+        let viewController = self
+        let interactor = DiceInteractor()
+        let presenter = DicePresenter()
+        let router = DiceRouter()
+        let worker = DiceWorker()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+        interactor.worker = worker
+    }
     
     private var labels: [UILabel] = []
     
@@ -77,7 +103,7 @@ final class GameViewController: UIViewController {
         playButton.setTitleColor(.black, for: .normal)
         playButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         playButton.addAction(UIAction() { [weak self] _ in
-            self?.GameButton()
+            self?.diceButtonAction()
         }, for: .touchUpInside)
         playButton.layer.cornerRadius = 10.0
         playButton.layer.masksToBounds = true
@@ -91,11 +117,11 @@ final class GameViewController: UIViewController {
         setupView()
         setupTitle()
         addConstraints()
+        setup()
     }
-
 }
 
-private extension GameViewController {
+private extension DiceViewController {
     
     private func addConstraints(){
         oneDotLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -167,52 +193,23 @@ private extension GameViewController {
         
     }
     
-    func GameButton(){
+    func diceButtonAction() {
+        let request = DiceModels.States.Request(buttonState: playButton.isSelected)
+        interactor?.playTheGame(request: request)
         playButton.isSelected = !playButton.isSelected
-        if !playButton.isSelected {
-            rollTheDice()
-        }
-        else {
-            renewGame()
-        }
+    }
+}
+
+extension DiceViewController: DiceDisplayLogic {
+    func getTheDice(viewModel: DiceModels.States.ViewModel.Play) {
+        playButton.setTitle(viewModel.buttonName, for: .normal)
+        labels.forEach { $0.isHidden = true}
+        labels[viewModel.shownLabel.rawValue].isHidden = false
+        router?.sendDiceResult()
     }
     
-    func rollTheDice(){
-        guard let chosenLabel = labels.randomElement() else {return}
-        guard let result = chosenLabel.text else {return}
-        diceDelegate?.getDiceHistory(diceData: result)
-        allDiceCounter += 1
-        switch chosenLabel {
-        case oneDotLabel:
-            oneCounter += 1
-        case twoDotLabel:
-            twoCounter += 1
-        case threeDotLabel:
-            threeCounter += 1
-        case fourDotLabel:
-            fourCounter += 1
-        case fiveDotLabel:
-            fiveCounter += 1
-        case sixDotLabel:
-            sixCounter += 1
-        default:
-            break
-        }
-        diceDelegate?.getDiceStats(
-            one: oneCounter/allDiceCounter,
-            two: twoCounter/allDiceCounter,
-            three: threeCounter/allDiceCounter,
-            four: fourCounter/allDiceCounter,
-            five: fiveCounter/allDiceCounter,
-            six: sixCounter/allDiceCounter)
-        
-        labels.forEach { $0.isHidden = true }
-        chosenLabel.isHidden = false
-        playButton.setTitle("Повтор", for: .normal)
-    }
-    
-    func renewGame(){
-        labels.forEach { $0.isHidden = false }
-        playButton.setTitle("Бросить кубик", for: .normal)
+    func revertDice(viewModel: DiceModels.States.ViewModel) {
+        playButton.setTitle(viewModel.buttonName, for: .normal)
+        labels.forEach { $0.isHidden = false}
     }
 }

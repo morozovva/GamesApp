@@ -23,12 +23,31 @@
 		522993F427F45D150032279A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F327F45D150032279A /* TabBarController.swift */; };
 		522993F627F45D710032279A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F527F45D710032279A /* NavigationController.swift */; };
 		522993F827F45DB50032279A /* RPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F727F45DB50032279A /* RPSViewController.swift */; };
-		522993FA27F45E190032279A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F927F45E190032279A /* GameViewController.swift */; };
+		522993FA27F45E190032279A /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F927F45E190032279A /* DiceViewController.swift */; };
 		5229940427F58F560032279A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940327F58F550032279A /* SettingsViewController.swift */; };
-		5229940827F860EA0032279A /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940727F860EA0032279A /* Dictionaries.swift */; };
+		5229940827F860EA0032279A /* RPSDictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940727F860EA0032279A /* RPSDictionaries.swift */; };
 		5237DB162817052400FE5802 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB132817052400FE5802 /* RocketViewController.swift */; };
 		5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB142817052400FE5802 /* RocketViewExtension.swift */; };
 		5237DB182817052400FE5802 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB152817052400FE5802 /* RocketView.swift */; };
+		526AA473284CCF620056F600 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA472284CCF620056F600 /* HistoryRouter.swift */; };
+		526AA475284CCF880056F600 /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA474284CCF880056F600 /* HistoryWorker.swift */; };
+		526AA477284CCF9E0056F600 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA476284CCF9E0056F600 /* HistoryInteractor.swift */; };
+		526AA479284CCFD20056F600 /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA478284CCFD20056F600 /* HistoryModels.swift */; };
+		526AA47B284CCFE60056F600 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47A284CCFE60056F600 /* HistoryPresenter.swift */; };
+		526AA47D284CD05C0056F600 /* RPSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47C284CD05C0056F600 /* RPSRouter.swift */; };
+		526AA47F284CD0850056F600 /* RPSWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47E284CD0850056F600 /* RPSWorker.swift */; };
+		526AA481284CD09E0056F600 /* RPSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA480284CD09E0056F600 /* RPSInteractor.swift */; };
+		526AA483284CD11D0056F600 /* RPSPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA482284CD11D0056F600 /* RPSPresenter.swift */; };
+		526AA485284CD13D0056F600 /* RPSModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA484284CD13D0056F600 /* RPSModels.swift */; };
+		526AA487284CD1A10056F600 /* DiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA486284CD1A10056F600 /* DiceRouter.swift */; };
+		526AA489284CD1B10056F600 /* DiceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA488284CD1B10056F600 /* DiceWorker.swift */; };
+		526AA48B284CD1C90056F600 /* DiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48A284CD1C90056F600 /* DiceInteractor.swift */; };
+		526AA48D284CD1E00056F600 /* DiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48C284CD1E00056F600 /* DiceModels.swift */; };
+		526AA48F284CD1F20056F600 /* DicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48E284CD1F20056F600 /* DicePresenter.swift */; };
+		526AA491284CD2440056F600 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA490284CD2440056F600 /* SettingsInteractor.swift */; };
+		526AA493284CD2580056F600 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA492284CD2580056F600 /* SettingsPresenter.swift */; };
+		526AA495284CD26F0056F600 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA494284CD26F0056F600 /* SettingsRouter.swift */; };
+		526AA497284CD2800056F600 /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA496284CD2800056F600 /* SettingsModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +69,31 @@
 		522993F327F45D150032279A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		522993F527F45D710032279A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		522993F727F45DB50032279A /* RPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSViewController.swift; sourceTree = "<group>"; };
-		522993F927F45E190032279A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		522993F927F45E190032279A /* DiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		5229940327F58F550032279A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		5229940727F860EA0032279A /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
+		5229940727F860EA0032279A /* RPSDictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSDictionaries.swift; sourceTree = "<group>"; };
 		5237DB132817052400FE5802 /* RocketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
 		5237DB142817052400FE5802 /* RocketViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewExtension.swift; sourceTree = "<group>"; };
 		5237DB152817052400FE5802 /* RocketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
+		526AA472284CCF620056F600 /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
+		526AA474284CCF880056F600 /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
+		526AA476284CCF9E0056F600 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		526AA478284CCFD20056F600 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
+		526AA47A284CCFE60056F600 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		526AA47C284CD05C0056F600 /* RPSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSRouter.swift; sourceTree = "<group>"; };
+		526AA47E284CD0850056F600 /* RPSWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSWorker.swift; sourceTree = "<group>"; };
+		526AA480284CD09E0056F600 /* RPSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSInteractor.swift; sourceTree = "<group>"; };
+		526AA482284CD11D0056F600 /* RPSPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSPresenter.swift; sourceTree = "<group>"; };
+		526AA484284CD13D0056F600 /* RPSModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSModels.swift; sourceTree = "<group>"; };
+		526AA486284CD1A10056F600 /* DiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRouter.swift; sourceTree = "<group>"; };
+		526AA488284CD1B10056F600 /* DiceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceWorker.swift; sourceTree = "<group>"; };
+		526AA48A284CD1C90056F600 /* DiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceInteractor.swift; sourceTree = "<group>"; };
+		526AA48C284CD1E00056F600 /* DiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceModels.swift; sourceTree = "<group>"; };
+		526AA48E284CD1F20056F600 /* DicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePresenter.swift; sourceTree = "<group>"; };
+		526AA490284CD2440056F600 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		526AA492284CD2580056F600 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		526AA494284CD26F0056F600 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		526AA496284CD2800056F600 /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,29 +107,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52107F97280800A6008B642F /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				52107FAD280AACF7008B642F /* Data */,
-				52107F98280800BC008B642F /* Controller */,
-			);
-			path = Games;
-			sourceTree = "<group>";
-		};
-		52107F98280800BC008B642F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				522993F727F45DB50032279A /* RPSViewController.swift */,
-				522993F927F45E190032279A /* GameViewController.swift */,
-				5229940327F58F550032279A /* SettingsViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		52107F992808016D008B642F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				52107F9B280801EA008B642F /* HistoryView.swift */,
+				52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,39 +129,27 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
-		52107FA3280832F1008B642F /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		52107FAB280AAC69008B642F /* History */ = {
 			isa = PBXGroup;
 			children = (
-				52107FAC280AACAE008B642F /* Controller */,
+				52107FAC280AACAE008B642F /* Clean */,
 				52107F992808016D008B642F /* View */,
-				52107FA3280832F1008B642F /* UIKit */,
 				52107F9A280801B0008B642F /* DataStore */,
 			);
 			path = History;
 			sourceTree = "<group>";
 		};
-		52107FAC280AACAE008B642F /* Controller */ = {
+		52107FAC280AACAE008B642F /* Clean */ = {
 			isa = PBXGroup;
 			children = (
 				52107F952807FEDF008B642F /* HistoryViewController.swift */,
+				526AA472284CCF620056F600 /* HistoryRouter.swift */,
+				526AA474284CCF880056F600 /* HistoryWorker.swift */,
+				526AA476284CCF9E0056F600 /* HistoryInteractor.swift */,
+				526AA478284CCFD20056F600 /* HistoryModels.swift */,
+				526AA47A284CCFE60056F600 /* HistoryPresenter.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		52107FAD280AACF7008B642F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				5229940727F860EA0032279A /* Dictionaries.swift */,
-			);
-			path = Data;
+			path = Clean;
 			sourceTree = "<group>";
 		};
 		522993D327F37ACA0032279A = {
@@ -164,8 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				5237DB122817052300FE5802 /* Rocket */,
-				52107FAB280AAC69008B642F /* History */,
-				52107F97280800A6008B642F /* Games */,
+				526AA46E284CCEEE0056F600 /* Scenes */,
 				522993DF27F37ACA0032279A /* AppDelegate.swift */,
 				522993E127F37ACA0032279A /* SceneDelegate.swift */,
 				522993E827F37ACD0032279A /* Assets.xcassets */,
@@ -185,6 +192,56 @@
 				5237DB152817052400FE5802 /* RocketView.swift */,
 			);
 			path = Rocket;
+			sourceTree = "<group>";
+		};
+		526AA46E284CCEEE0056F600 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				52107FAB280AAC69008B642F /* History */,
+				526AA46F284CCF010056F600 /* RPS */,
+				526AA470284CCF090056F600 /* Dice */,
+				526AA471284CCF100056F600 /* Settings */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		526AA46F284CCF010056F600 /* RPS */ = {
+			isa = PBXGroup;
+			children = (
+				522993F727F45DB50032279A /* RPSViewController.swift */,
+				526AA47C284CD05C0056F600 /* RPSRouter.swift */,
+				526AA47E284CD0850056F600 /* RPSWorker.swift */,
+				526AA480284CD09E0056F600 /* RPSInteractor.swift */,
+				5229940727F860EA0032279A /* RPSDictionaries.swift */,
+				526AA482284CD11D0056F600 /* RPSPresenter.swift */,
+				526AA484284CD13D0056F600 /* RPSModels.swift */,
+			);
+			path = RPS;
+			sourceTree = "<group>";
+		};
+		526AA470284CCF090056F600 /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				522993F927F45E190032279A /* DiceViewController.swift */,
+				526AA486284CD1A10056F600 /* DiceRouter.swift */,
+				526AA488284CD1B10056F600 /* DiceWorker.swift */,
+				526AA48A284CD1C90056F600 /* DiceInteractor.swift */,
+				526AA48C284CD1E00056F600 /* DiceModels.swift */,
+				526AA48E284CD1F20056F600 /* DicePresenter.swift */,
+			);
+			path = Dice;
+			sourceTree = "<group>";
+		};
+		526AA471284CCF100056F600 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5229940327F58F550032279A /* SettingsViewController.swift */,
+				526AA490284CD2440056F600 /* SettingsInteractor.swift */,
+				526AA492284CD2580056F600 /* SettingsPresenter.swift */,
+				526AA494284CD26F0056F600 /* SettingsRouter.swift */,
+				526AA496284CD2800056F600 /* SettingsModels.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,26 +314,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526AA47D284CD05C0056F600 /* RPSRouter.swift in Sources */,
 				522993F427F45D150032279A /* TabBarController.swift in Sources */,
+				526AA47F284CD0850056F600 /* RPSWorker.swift in Sources */,
 				522993F627F45D710032279A /* NavigationController.swift in Sources */,
+				526AA483284CD11D0056F600 /* RPSPresenter.swift in Sources */,
 				522993F827F45DB50032279A /* RPSViewController.swift in Sources */,
-				5229940827F860EA0032279A /* Dictionaries.swift in Sources */,
+				526AA48F284CD1F20056F600 /* DicePresenter.swift in Sources */,
+				5229940827F860EA0032279A /* RPSDictionaries.swift in Sources */,
+				526AA475284CCF880056F600 /* HistoryWorker.swift in Sources */,
+				526AA47B284CCFE60056F600 /* HistoryPresenter.swift in Sources */,
 				52107F9E280803DF008B642F /* DataStore.swift in Sources */,
 				52107FA52808331A008B642F /* CollectionViewLayoutFactory.swift in Sources */,
+				526AA485284CD13D0056F600 /* RPSModels.swift in Sources */,
 				522993E027F37ACA0032279A /* AppDelegate.swift in Sources */,
-				522993FA27F45E190032279A /* GameViewController.swift in Sources */,
+				522993FA27F45E190032279A /* DiceViewController.swift in Sources */,
+				526AA487284CD1A10056F600 /* DiceRouter.swift in Sources */,
+				526AA493284CD2580056F600 /* SettingsPresenter.swift in Sources */,
+				526AA48B284CD1C90056F600 /* DiceInteractor.swift in Sources */,
+				526AA477284CCF9E0056F600 /* HistoryInteractor.swift in Sources */,
 				52107F962807FEDF008B642F /* HistoryViewController.swift in Sources */,
 				52107F9C280801EA008B642F /* HistoryView.swift in Sources */,
+				526AA495284CD26F0056F600 /* SettingsRouter.swift in Sources */,
+				526AA479284CCFD20056F600 /* HistoryModels.swift in Sources */,
+				526AA48D284CD1E00056F600 /* DiceModels.swift in Sources */,
 				5237DB182817052400FE5802 /* RocketView.swift in Sources */,
 				5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */,
 				52107FA028082D18008B642F /* BestGameSetConfiguration.swift in Sources */,
+				526AA473284CCF620056F600 /* HistoryRouter.swift in Sources */,
 				522993E227F37ACA0032279A /* SceneDelegate.swift in Sources */,
 				52107FA228082EB9008B642F /* HistoryCollectionItem.swift in Sources */,
+				526AA481284CD09E0056F600 /* RPSInteractor.swift in Sources */,
+				526AA489284CD1B10056F600 /* DiceWorker.swift in Sources */,
 				5229940427F58F560032279A /* SettingsViewController.swift in Sources */,
 				5237DB162817052400FE5802 /* RocketViewController.swift in Sources */,
 				52107FB7280D7D6B008B642F /* HeaderCollectionReusableView.swift in Sources */,
 				52107FAA28097E5C008B642F /* DiceSetConfiguration.swift in Sources */,
 				52107FA728089F0E008B642F /* RPSConfiguration.swift in Sources */,
+				526AA497284CD2800056F600 /* SettingsModels.swift in Sources */,
+				526AA491284CD2440056F600 /* SettingsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

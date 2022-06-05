@@ -7,15 +7,30 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate: AnyObject {
-    func languageButtonDidTap (_ state: Bool)
-    func tieButtonDidTap(_ state: Bool)
+
+protocol SettingsDisplayLogic: AnyObject
+{
+    func displaySettings(viewModel: SettingsModels.Settings.ViewModel)
 }
 
 class SettingsViewController: UIViewController{
     
-    let defaults = UserDefaults.standard
-    weak var delegate: SettingsViewControllerDelegate?
+    var interactor: SettingsBusinessLogic?
+    var router: SettingsRouter?
+    
+    private func setup()
+    {
+      let viewController = self
+      let interactor = SettingsInteractor()
+      let presenter = SettingsPresenter()
+      let router = SettingsRouter()
+        viewController.interactor = interactor
+      viewController.router = router
+      interactor.presenter = presenter
+      presenter.viewController = viewController
+      router.viewController = viewController
+      router.dataStore = interactor
+    }
     
     private let changeLangLabel: UILabel = {
         let changeLangLabel = UILabel()
@@ -29,11 +44,6 @@ class SettingsViewController: UIViewController{
     private lazy var langSwitchButton: UIButton = {
         let langSwitchButton = UIButton()
         langSwitchButton.backgroundColor = .white
-        langSwitchButton.setImage(
-                    UIImage(
-                        systemName: (defaults.bool(forKey: "langState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
-                        withConfiguration: UIImage.SymbolConfiguration(pointSize: 32)),
-                    for: .normal)
         langSwitchButton.tintColor = .black
         langSwitchButton.addAction(UIAction() { [weak self] _ in
             self?.didPressLangButton()
@@ -53,11 +63,6 @@ class SettingsViewController: UIViewController{
     private lazy var tieSwitchButton: UIButton = {
         let tieSwitchButton = UIButton()
         tieSwitchButton.backgroundColor = .white
-        tieSwitchButton.setImage(
-                    UIImage(
-                        systemName: (defaults.bool(forKey: "tieState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
-                        withConfiguration: UIImage.SymbolConfiguration(pointSize: 32)),
-                    for: .normal)
         tieSwitchButton.tintColor = .black
         tieSwitchButton.addAction(UIAction() { [weak self] _ in
             self?.didPressTieButton()
@@ -67,9 +72,11 @@ class SettingsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupView()
         setupTitle()
         addConstraints()
+        setupButtons()
     }
 }
 
@@ -118,30 +125,35 @@ private extension SettingsViewController {
         ])
     }
     
-    func changeLangState(state: Bool){
-        defaults.set(!state, forKey: "langState")
-    }
-    func changeTieState(tie: Bool){
-        defaults.set(!tie, forKey: "tieState")
+    func setupButtons(){
+        let request = SettingsModels.Settings.Request()
+        interactor?.showSettings(request: request)
     }
     
     func didPressLangButton(){
-        changeLangState(state: defaults.bool(forKey: "langState"))
-        delegate?.languageButtonDidTap(defaults.bool(forKey: "langState"))
-        langSwitchButton.setImage(
-                    UIImage(
-                        systemName: (defaults.bool(forKey: "langState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
-                        withConfiguration: UIImage.SymbolConfiguration(pointSize: 32)),
-                    for: .normal)
+        let request = SettingsModels.Settings.Request()
+        interactor?.changeLanguage(request: request)
+        router?.passDataToRPS()
     }
     
     func didPressTieButton() {
-        changeTieState(tie: defaults.bool(forKey: "tieState"))
-        delegate?.tieButtonDidTap(defaults.bool(forKey: "tieState"))
+        let request = SettingsModels.Settings.Request()
+        interactor?.changeTieMode(request: request)
+        router?.passDataToRPS()
+    }
+}
+
+extension SettingsViewController: SettingsDisplayLogic {
+    func displaySettings(viewModel: SettingsModels.Settings.ViewModel) {
         tieSwitchButton.setImage(
             UIImage(
-                systemName: (defaults.bool(forKey: "tieState") == true) ? "checkmark.circle" : "checkmark.circle.fill",
+                systemName: (viewModel.tieCheck == true) ? "checkmark.circle" : "checkmark.circle.fill",
                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 32)),
             for: .normal)
+        langSwitchButton.setImage(
+                    UIImage(
+                        systemName: (viewModel.langCheck == true) ? "checkmark.circle" : "checkmark.circle.fill",
+                        withConfiguration: UIImage.SymbolConfiguration(pointSize: 32)),
+                    for: .normal)
     }
 }

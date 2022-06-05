@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func applicationWillTerminate(_ application: UIApplication) {
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "langState")
+        defaults.set(true, forKey: "tieState")
+    }
 }
 
