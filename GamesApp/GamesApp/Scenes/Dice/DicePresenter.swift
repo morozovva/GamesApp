@@ -9,8 +9,8 @@ import UIKit
 
 
 protocol DicePresentationLogic: AnyObject {
-    func showResult(response: DiceModels.States.Response.Play)
-    func revertGame(response: DiceModels.States.Response)
+    func presentDiceRolling(response: DiceModels.Rolling.Response)
+    func presentGameReverting(response: DiceModels.Reverting.Response)
 }
 
 class DicePresenter {
@@ -18,13 +18,13 @@ class DicePresenter {
 }
 
 extension DicePresenter: DicePresentationLogic {
-    func showResult(response: DiceModels.States.Response.Play) {
-        let viewModel = DiceModels.States.ViewModel.Play(shownLabel: response.shownLabel, buttonName: response.buttonName)
-        viewController?.getTheDice(viewModel: viewModel)
+    func presentDiceRolling(response: DiceModels.Rolling.Response) {
+        let viewModel = DiceModels.Rolling.ViewModel(shownLabel: response.shownLabel)
+        viewController?.displayDiceRolling(viewModel: viewModel)
     }
     
-    func revertGame(response: DiceModels.States.Response) {
-        let viewModel = DiceModels.States.ViewModel(buttonName: response.buttonName)
-        viewController?.revertDice(viewModel: viewModel)
+    func presentGameReverting(response: DiceModels.Reverting.Response) {
+        let viewModel = DiceModels.Reverting.ViewModel()
+        viewController?.displayDiceReverting(viewModel: viewModel)
     }
 }

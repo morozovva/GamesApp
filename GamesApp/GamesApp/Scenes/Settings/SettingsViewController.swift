@@ -16,25 +16,20 @@ protocol SettingsDisplayLogic: AnyObject
 class SettingsViewController: UIViewController{
     
     var interactor: SettingsBusinessLogic?
-    var router: SettingsRouter?
     
     private func setup()
     {
       let viewController = self
       let interactor = SettingsInteractor()
       let presenter = SettingsPresenter()
-      let router = SettingsRouter()
         viewController.interactor = interactor
-      viewController.router = router
       interactor.presenter = presenter
       presenter.viewController = viewController
-      router.viewController = viewController
-      router.dataStore = interactor
     }
     
     private let changeLangLabel: UILabel = {
         let changeLangLabel = UILabel()
-        changeLangLabel.text = "Установить английский язык"
+        changeLangLabel.text = L10n.Settings.english
         changeLangLabel.font = .systemFont(ofSize: 21, weight: .regular)
         changeLangLabel.lineBreakMode = .byWordWrapping
         changeLangLabel.numberOfLines = 0
@@ -53,7 +48,7 @@ class SettingsViewController: UIViewController{
     
     private var enableTieLabel: UILabel = {
         let enableTieLabel = UILabel()
-        enableTieLabel.text = "Включить режим возможной ничьи"
+        enableTieLabel.text = L10n.Settings.tieMode
         enableTieLabel.font = .systemFont(ofSize: 21, weight: .regular)
         enableTieLabel.lineBreakMode = .byWordWrapping
         enableTieLabel.numberOfLines = 0
@@ -83,7 +78,7 @@ class SettingsViewController: UIViewController{
 private extension SettingsViewController {
     
     func setupTitle() {
-        title = "Настройки"
+        title = L10n.Navigation.settings
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -133,13 +128,11 @@ private extension SettingsViewController {
     func didPressLangButton(){
         let request = SettingsModels.Settings.Request()
         interactor?.changeLanguage(request: request)
-        router?.passDataToRPS()
     }
     
     func didPressTieButton() {
         let request = SettingsModels.Settings.Request()
         interactor?.changeTieMode(request: request)
-        router?.passDataToRPS()
     }
 }
 

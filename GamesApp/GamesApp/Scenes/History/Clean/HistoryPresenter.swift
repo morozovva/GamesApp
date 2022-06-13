@@ -9,10 +9,10 @@ import UIKit
 
 
 protocol HistoryPresentationLogic {
-    func presentDiceStats(response: HistoryModels.History.Response.Stats)
-    func presentDiceResult(response: HistoryModels.History.Response.Dice)
-    func presentRPSResult(response: HistoryModels.History.Response.RPS)
-    func presentRPSBestSet(response: HistoryModels.History.Response.BGSet)
+    func presentDiceResult(response: HistoryModels.DiceResult.Response)
+    func presentDiceStats(response: HistoryModels.DiceStats.Response)
+    func presentRPSResult(response: HistoryModels.RPSResult.Response)
+    func presentRPSBestSet(response: HistoryModels.RPSBestSet.Response)
 }
 
 class HistoryPresenter {
@@ -21,23 +21,23 @@ class HistoryPresenter {
 }
 
 extension HistoryPresenter: HistoryPresentationLogic {
-    func presentRPSBestSet(response: HistoryModels.History.Response.BGSet) {
-        let viewModel = HistoryModels.History.ViewModel.BGSet(result: response.result)
+    func presentRPSBestSet(response: HistoryModels.RPSBestSet.Response) {
+        let viewModel = HistoryModels.RPSBestSet.ViewModel(result: response.result)
         viewController?.displayRPSBestSet(viewModel: viewModel)
     }
     
-    func presentRPSResult(response: HistoryModels.History.Response.RPS) {
-        let viewModel = HistoryModels.History.ViewModel.RPS(person: response.person, bot: response.bot, result: response.result)
+    func presentRPSResult(response: HistoryModels.RPSResult.Response) {
+        let viewModel = HistoryModels.RPSResult.ViewModel(RPSResult: response.RPSResult)
         viewController?.displayRPSResult(viewModel: viewModel)
     }
     
-    func presentDiceResult(response: HistoryModels.History.Response.Dice) {
-        let viewModel = HistoryModels.History.ViewModel.Dice(result: response.result)
+    func presentDiceResult(response: HistoryModels.DiceResult.Response) {
+        let viewModel = HistoryModels.DiceResult.ViewModel(result: response.result)
         viewController?.displayDiceResult(viewModel: viewModel)
     }
     
-    func presentDiceStats(response: HistoryModels.History.Response.Stats) {
-        let viewModel = HistoryModels.History.ViewModel.Stats(diceStats: response.diceStats)
+    func presentDiceStats(response: HistoryModels.DiceStats.Response) {
+        let viewModel = HistoryModels.DiceStats.ViewModel(diceStats: response.diceStats)
         viewController?.displayDiceStats(viewModel: viewModel)
     }
 }

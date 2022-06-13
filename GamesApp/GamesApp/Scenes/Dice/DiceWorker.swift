@@ -7,9 +7,9 @@
 
 import UIKit
 
+
 protocol DiceWorkerLogic {
-    func rollTheDice() -> (buttonTitle: String, number: Numbers, stats: [Double])
-    func renewGame() -> String
+    func rollTheDice() -> Numbers
 }
 
 class DiceWorker {
@@ -20,15 +20,12 @@ class DiceWorker {
     private var fourCounter: Double = 0
     private var fiveCounter: Double = 0
     private var sixCounter: Double = 0
+    private var chosenArray: [Numbers] = []
 }
 
 extension DiceWorker: DiceWorkerLogic {
-    func rollTheDice() -> (buttonTitle: String, number: Numbers, stats: [Double]){
-        var statistics = [Double](repeating: 0.0, count: 6)
-        var chosen: Numbers = .one
-        if let chosenNumber = Numbers.allCases.randomElement(){
-            chosen = chosenNumber
-        }
+    func rollTheDice() -> Numbers {
+        let chosen = Numbers.allCases.randomElement() ?? .one
         allDiceCounter += 1
         switch chosen {
         case .one:
@@ -44,11 +41,15 @@ extension DiceWorker: DiceWorkerLogic {
         case .six:
             sixCounter += 1
         }
-        statistics = [oneCounter/allDiceCounter, twoCounter/allDiceCounter, threeCounter/allDiceCounter, fourCounter/allDiceCounter, fiveCounter/allDiceCounter, sixCounter/allDiceCounter]
-        return (buttonTitle: "Повтор", number: chosen, stats: statistics)
-    }
-    
-    func renewGame() -> String{
-        return "Бросить кубик"
+        AppData.diceStatistics = DiceDroppingStatistics(
+                                onePercentage: oneCounter/allDiceCounter,
+                                twoPercentage: twoCounter/allDiceCounter,
+                                threePercentage: threeCounter/allDiceCounter,
+                                fourPercentage: fourCounter/allDiceCounter,
+                                fivePercentage: fiveCounter/allDiceCounter,
+                                sixPercentage: sixCounter/allDiceCounter)
+        chosenArray.append(chosen)
+        AppData.diceResult = chosenArray
+        return chosen
     }
 }

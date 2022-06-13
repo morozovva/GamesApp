@@ -1,0 +1,6 @@
+
+strings:
+  inputs: GamesApp/en.lproj
+  outputs:
+    templateName: structured-swift5
+    output: GamesApp/Generated/Strings.swift

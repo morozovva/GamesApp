@@ -9,13 +9,13 @@ import UIKit
 
 
 protocol RPSDisplayLogic: AnyObject {
-    func getRPS(viewModel: RPSModels.Game.ViewModel)
+    func displayRPS(viewModel: RPSModels.Game.ViewModel)
 }
 
 class RPSViewController: UIViewController{
     
   var interactor: RPSBusinessLogic?
-  var router: (RPSRoutingLogic & RPSDataPassing)?
+  var router: RPSRoutingLogic?
     
   // MARK: Setup
   
@@ -30,7 +30,6 @@ class RPSViewController: UIViewController{
     interactor.presenter = presenter
     presenter.viewController = viewController
     router.viewController = viewController
-    router.dataStore = interactor
   }
   
     let rockImage = UIImage(named: "rock.png")
@@ -79,7 +78,6 @@ class RPSViewController: UIViewController{
     private lazy var restartButton: UIButton = {
         let restartButton = UIButton()
         restartButton.backgroundColor = .white
-        restartButton.setTitle("Начать заново", for: .normal)
         restartButton.setTitleColor(.black, for: .normal)
         restartButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         restartButton.addAction(UIAction() { [weak self] _ in
@@ -98,6 +96,12 @@ class RPSViewController: UIViewController{
         setupNavigationBarIfPossible()
         setupView()
         addConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        restartButton.setTitle(L10n.Rps.button, for: .normal)
+        title = L10n.Navigation.rps
     }
 }
 
@@ -143,7 +147,6 @@ private extension RPSViewController{
     }
     
     func setupNavigationBarIfPossible() {
-        title = "Камень Ножницы Бумага"
         navigationController?.navigationBar.prefersLargeTitles = true
         let settingsButton = UIButton()
         settingsButton.setImage(
@@ -189,7 +192,7 @@ private extension RPSViewController{
 
 extension RPSViewController: RPSDisplayLogic {
     
-    func getRPS(viewModel: RPSModels.Game.ViewModel) {
+    func displayRPS(viewModel: RPSModels.Game.ViewModel) {
         rockButton.isHidden = true
         paperButton.isHidden = true
         scissorsButton.isHidden = true
@@ -199,6 +202,5 @@ extension RPSViewController: RPSDisplayLogic {
         restartButton.isHidden = false
         winnerLabel.text = viewModel.gameResult
         botsChoise.text = viewModel.botsChoise
-        router?.passRPSResToHistory()
     }
 }

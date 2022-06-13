@@ -8,18 +8,17 @@
 import UIKit
 
 protocol HistoryDisplayLogic: AnyObject {
-    func displayDiceStats(viewModel: HistoryModels.History.ViewModel.Stats)
-    func displayDiceResult(viewModel: HistoryModels.History.ViewModel.Dice)
-    func displayRPSResult(viewModel: HistoryModels.History.ViewModel.RPS)
-    func displayRPSBestSet(viewModel: HistoryModels.History.ViewModel.BGSet)
+    func displayDiceStats(viewModel: HistoryModels.DiceStats.ViewModel)
+    func displayDiceResult(viewModel: HistoryModels.DiceResult.ViewModel)
+    func displayRPSResult(viewModel: HistoryModels.RPSResult.ViewModel)
+    func displayRPSBestSet(viewModel: HistoryModels.RPSBestSet.ViewModel)
 }
 
 class HistoryViewController: UIViewController {
     
-    private var contentView = HistoryView()
+    private var contentView: HistoryViewDisplay? = HistoryView()
     
     var interactor: HistoryBusinessLogic?
-    var router: HistoryDataPassing?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
@@ -38,70 +37,49 @@ class HistoryViewController: UIViewController {
         let viewController = self
         let interactor = HistoryInteractor()
         let presenter = HistoryPresenter()
-        let router = HistoryRouter()
         viewController.interactor = interactor
-          viewController.router = router
-          interactor.presenter = presenter
-          presenter.viewController = viewController
-          router.viewController = viewController
-          router.dataStore = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
     }
     
     override func loadView() {
-        view = contentView
+        view = contentView as? UIView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "История"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.hidesBarsOnSwipe = false
     }
-}
-
-extension HistoryViewController {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        title = L10n.Navigation.history
+        let RPSRequest = HistoryModels.RPSResult.Request()
+        interactor?.updateRPSResult(request: RPSRequest)
+        let RPSBestSetRequest = HistoryModels.RPSBestSet.Request()
+        interactor?.updateRPSBestSet(request: RPSBestSetRequest)
+        let statsRequest = HistoryModels.DiceStats.Request()
+        interactor?.updateDiceStats(request: statsRequest)
+        let diceRequest = HistoryModels.DiceResult.Request()
+        interactor?.updateDiceResult(request: diceRequest)
+    }
 }
 
 extension HistoryViewController: HistoryDisplayLogic {
-    func displayRPSBestSet(viewModel: HistoryModels.History.ViewModel.BGSet) {
-        contentView.dataStore.bestGameSetArray.remove(at: 0)
-        contentView.dataStore.bestGameSetArray.insert(.init(id: 0, bestRPSSet: viewModel.result, one: 0, two: 0, three: 0, four: 0, five: 0, six: 0), at: 0)
-        var currentSnapshot = contentView.dataSource.snapshot()
-        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .bestGameSets))
-        currentSnapshot.appendItems(contentView.dataStore.bestGameSetArray.map({ BestGameSetConfiguration in HistoryCollectionItem(content: .bestGameSet(configuration: BestGameSetConfiguration))
-        }), toSection: .bestGameSets)
-        currentSnapshot.reloadSections([.bestGameSets])
-        contentView.dataSource.apply(currentSnapshot)
+    func displayRPSBestSet(viewModel: HistoryModels.RPSBestSet.ViewModel) {
+        contentView?.displayRPSBestSet(result: viewModel.result)
     }
     
-    func displayDiceResult(viewModel: HistoryModels.History.ViewModel.Dice) {
-        contentView.dataStore.diceHistoryArray.append(.init(diceResult:"Результат игры: \(viewModel.result.getEmoji())"))
-        var currentSnapshot = contentView.dataSource.snapshot()
-        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .DiceHistory))
-        currentSnapshot.appendItems(contentView.dataStore.diceHistoryArray.map({ DiceSetConfiguration in HistoryCollectionItem(content: .DiceHistory(configuration: DiceSetConfiguration))
-        }), toSection: .DiceHistory)
-        currentSnapshot.reloadSections([.DiceHistory])
-        contentView.dataSource.apply(currentSnapshot)
+    func displayDiceResult(viewModel: HistoryModels.DiceResult.ViewModel) {
+        contentView?.displayDiceResult(result: viewModel.result)
     }
     
-    func displayDiceStats(viewModel: HistoryModels.History.ViewModel.Stats) {
-        contentView.dataStore.bestGameSetArray.remove(at: 1)
-        contentView.dataStore.bestGameSetArray.append(.init(id: 1, bestRPSSet: 0, one: viewModel.diceStats[0], two: viewModel.diceStats[1], three: viewModel.diceStats[2], four: viewModel.diceStats[3], five: viewModel.diceStats[4], six: viewModel.diceStats[5]))
-        var currentSnapshot = contentView.dataSource.snapshot()
-        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .bestGameSets))
-        currentSnapshot.appendItems(contentView.dataStore.bestGameSetArray.map({ BestGameSetConfiguration in HistoryCollectionItem(content: .bestGameSet(configuration: BestGameSetConfiguration))
-        }), toSection: .bestGameSets)
-        currentSnapshot.reloadSections([.bestGameSets])
-        contentView.dataSource.apply(currentSnapshot)
+    func displayDiceStats(viewModel: HistoryModels.DiceStats.ViewModel) {
+        contentView?.displayDiceStats(diceStats: viewModel.diceStats)
     }
     
-    func displayRPSResult(viewModel: HistoryModels.History.ViewModel.RPS) {
-        contentView.dataStore.RPSHistoryArray.append(.init(pcChoise: viewModel.bot, personChoise: viewModel.person, RPSResult: viewModel.result))
-        var currentSnapshot = contentView.dataSource.snapshot()
-        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .RPSHistory))
-        currentSnapshot.appendItems(contentView.dataStore.RPSHistoryArray.map({ RPSSetConfiguration in HistoryCollectionItem(content: .RPSHistory(configuration: RPSSetConfiguration))
-        }), toSection: .RPSHistory)
-        currentSnapshot.reloadSections([.RPSHistory])
-        contentView.dataSource.apply(currentSnapshot)
+    func displayRPSResult(viewModel: HistoryModels.RPSResult.ViewModel) {
+        contentView?.displayRPSResult(result: viewModel.RPSResult)
     }
 }

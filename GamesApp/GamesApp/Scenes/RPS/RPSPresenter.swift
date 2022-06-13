@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol RPSPresentationLogic {
-    func showRPSResult(response: RPSModels.Game.Response)
+    func presentRPSResult(response: RPSModels.Game.Response)
 }
 
 class RPSPresenter {
@@ -17,8 +17,8 @@ class RPSPresenter {
 }
 
 extension RPSPresenter: RPSPresentationLogic {
-    func showRPSResult(response: RPSModels.Game.Response) {
+    func presentRPSResult(response: RPSModels.Game.Response) {
         let viewModel = RPSModels.Game.ViewModel(botsChoise: response.botsChoise, gameResult: response.gameResult)
-        viewController?.getRPS(viewModel: viewModel)
+        viewController?.displayRPS(viewModel: viewModel)
     }
 }

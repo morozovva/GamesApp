@@ -54,20 +54,20 @@ private extension TabBarController {
             pointSize: 20, weight: .semibold
         )
         navCRPS.tabBarItem = UITabBarItem(
-            title: "Камень Ножницы Бумага",
+            title: L10n.Navigation.rps,
             image: UIImage(systemName: "hand.wave"),
             tag: 1
         )
         navCRPS.tabBarItem.selectedImage = UIImage(systemName: "hand.wave.fill", withConfiguration: configuration)
         
         navCDice.tabBarItem = UITabBarItem(
-            title: "Игральная кость",
+            title: L10n.Navigation.dice,
             image: UIImage(systemName: "cube"),
             tag: 1)
         navCDice.tabBarItem.selectedImage = UIImage(systemName: "cube.fill", withConfiguration: configuration)
         
         navCHistory.tabBarItem = UITabBarItem(
-            title: "История",
+            title: L10n.Navigation.history,
             image: UIImage(systemName: "info.circle"),
             tag: 1)
         navCHistory.tabBarItem.selectedImage = UIImage(systemName: "info.circle.fill", withConfiguration: configuration)

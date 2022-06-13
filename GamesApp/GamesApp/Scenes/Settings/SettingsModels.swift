@@ -7,10 +7,7 @@
 
 import UIKit
 
-enum SettingsModels
-{
-  // MARK: Use cases
-  
+enum SettingsModels {
   enum Settings {
     struct Request {
     }

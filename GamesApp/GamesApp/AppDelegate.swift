@@ -32,9 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "langState")
-        defaults.set(true, forKey: "tieState")
+        AppData.RPSResult = []
+        AppData.diceResult = []
+        AppData.RPSBestSet = 0
+        AppData.diceStatistics = .init(onePercentage: 0, twoPercentage: 0, threePercentage: 0, fourPercentage: 0, fivePercentage: 0, sixPercentage: 0)
     }
 }
 

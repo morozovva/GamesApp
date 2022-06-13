@@ -73,9 +73,9 @@ final class RPSSetContentView: UIView, UIContentView {
         guard let content = configuration as? RPSSetConfiguration else {
             return
         }
-        self.personLabel.text = "Ваш выбор: \(content.personChoise)"
-        self.pcLabel.text = "Выбор бота: \(content.pcChoise)"
-        self.resLabel.text = "Результат игры: \(content.RPSResult)"
+        self.personLabel.text = "\(L10n.History.RPSHistory.person) \(content.personChoise)"
+        self.pcLabel.text = "\(L10n.History.RPSHistory.bot) \(content.pcChoise)"
+        self.resLabel.text = "\(L10n.History.RPSHistory.result) \(content.RPSResult)"
     }
     
     private func makeConstraints() {

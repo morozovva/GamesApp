@@ -8,24 +8,19 @@
 import UIKit
 
 enum DiceModels{
-  
-  enum States {
-    struct Request {
-        var buttonState: Bool
-    }
-    struct Response {
-        struct Play {
+    
+    enum Rolling {
+        struct Request {}
+        struct Response {
             var shownLabel: Numbers
-            var buttonName: String
         }
-        var buttonName: String
-    }
-    struct ViewModel {
-        struct Play {
+        struct ViewModel {
             var shownLabel: Numbers
-            var buttonName: String
         }
-        var buttonName: String
     }
-  }
+    enum Reverting {
+        struct Request {}
+        struct Response {}
+        struct ViewModel {}
+    }
 }

@@ -138,8 +138,8 @@ final class BestGameSetContentView: UIView, UIContentView {
         
         switch content.id{
         case 0:
-            label.text = "Лучший сет выигранных раундов в игре Камень-Ножницы-Бумага:"
-            BestSetLabel.text = "\(content.bestRPSSet) побед подряд"
+            label.text = L10n.History.RPSBestSet.title
+            BestSetLabel.text = "\(content.bestRPSSet) \(L10n.History.RPSBestSet.subTitle)"
             oneLabel.isHidden = true
             twoLabel.isHidden = true
             threeLabel.isHidden = true
@@ -147,7 +147,7 @@ final class BestGameSetContentView: UIView, UIContentView {
             fiveLabel.isHidden = true
             sixLabel.isHidden = true
         case 1:
-            label.text = "Статистика выброшенных кубиков"
+            label.text = L10n.History.DiceStats.title
             oneLabel.text = "1️⃣: \(String(format:"%.3f", content.oneStats))"
             twoLabel.text = "2️⃣: \(String(format:"%.3f", content.twoStats))"
             threeLabel.text = "3️⃣: \(String(format:"%.3f", content.threeStats))"

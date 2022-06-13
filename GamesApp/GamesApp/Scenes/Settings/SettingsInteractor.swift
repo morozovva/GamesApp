@@ -29,8 +29,8 @@ class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
     var tieCheck: Bool
     
     init() {
-        self.langCheck = defaults.bool(forKey: "langState")
-        self.tieCheck = defaults.bool(forKey: "tieState")
+        self.langCheck = AppData.langState
+        self.tieCheck = AppData.tieState
     }
     
     var presenter: SettingsPresentationLogic?
@@ -43,14 +43,20 @@ class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
     func changeLanguage(request: SettingsModels.Settings.Request) {
         langCheck = !langCheck
         let response = SettingsModels.Settings.Response(langCheck: langCheck, tieCheck: tieCheck)
-        defaults.set(langCheck, forKey: "langState")
+        AppData.langState = langCheck
+        switch langCheck {
+        case true:
+            AppData.language = Languages.rus.rawValue
+        case false:
+            AppData.language = Languages.eng.rawValue
+        }
         presenter?.presentSettings(response: response)
     }
     
     func changeTieMode(request: SettingsModels.Settings.Request) {
         tieCheck = !tieCheck
         let response = SettingsModels.Settings.Response(langCheck: langCheck, tieCheck: tieCheck)
-        defaults.set(tieCheck, forKey: "tieState")
+        AppData.tieState = tieCheck
         presenter?.presentSettings(response: response)
     }
 }

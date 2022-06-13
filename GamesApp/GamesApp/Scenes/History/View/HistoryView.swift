@@ -7,26 +7,17 @@
 
 import UIKit
 
-enum HistorySections: Int, CaseIterable {
-    case bestGameSets
-    case RPSHistory
-    case DiceHistory
-    
-    var sectionTitle: String {
-        switch self {
-        case .bestGameSets:
-            return "Статистика"
-        case .RPSHistory:
-            return "История игры в ✊🏻✌🏻✋🏻"
-        case .DiceHistory:
-            return "История бросков кубика"
-        }
-    }
+
+protocol HistoryViewDisplay: AnyObject {
+    func displayRPSBestSet(result: Int)
+    func displayDiceResult(result: [Numbers])
+    func displayDiceStats(diceStats: DiceDroppingStatistics)
+    func displayRPSResult(result: [RPSResultModel])
 }
 
 class HistoryView: UIView {
 
-    var dataStore = DataStore()
+    private var dataStore = DataStore()
     lazy var dataSource = makeDataSource()
     private var sections: [HistorySections] = [.bestGameSets, .RPSHistory, .DiceHistory]
 
@@ -67,7 +58,7 @@ class HistoryView: UIView {
 }
 
 
-extension HistoryView {
+private extension HistoryView {
     
     func addSubviews() {
         addSubview(collectionView)
@@ -129,5 +120,62 @@ extension HistoryView {
 
     func createCell(with item: HistoryCollectionItem.ItemType, for indexPath: IndexPath) -> UICollectionViewCell? {
         return collectionView.dequeueConfiguredReusableCell(using: cellRegistartion, for: indexPath, item: item)
+    }
+}
+
+extension HistoryView: HistoryViewDisplay {
+    func displayRPSBestSet(result: Int) {
+        dataStore.bestGameSetArray.remove(at: 0)
+        dataStore.bestGameSetArray.insert(.init(id: 0, bestRPSSet: result, one: 0, two: 0, three: 0, four: 0, five: 0, six: 0), at: 0)
+        var currentSnapshot = dataSource.snapshot()
+        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .bestGameSets))
+        currentSnapshot.appendItems(dataStore.bestGameSetArray.map({ BestGameSetConfiguration in HistoryCollectionItem(content: .bestGameSet(configuration: BestGameSetConfiguration))
+        }), toSection: .bestGameSets)
+        currentSnapshot.reloadSections([.bestGameSets])
+        dataSource.apply(currentSnapshot)
+    }
+    
+    func displayDiceResult(result: [Numbers]) {
+        dataStore.diceHistoryArray.removeAll()
+        for result in result {
+            dataStore.diceHistoryArray.append(.init(diceResult: "\(L10n.History.DiceHistory.text) \(result.getEmoji())"))
+            var currentSnapshot = dataSource.snapshot()
+            currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .DiceHistory))
+            currentSnapshot.appendItems(dataStore.diceHistoryArray.map({ DiceSetConfiguration in HistoryCollectionItem(content: .DiceHistory(configuration: DiceSetConfiguration))
+            }), toSection: .DiceHistory)
+            currentSnapshot.reloadSections([.DiceHistory])
+            dataSource.apply(currentSnapshot)
+        }
+    }
+    
+    func displayDiceStats(diceStats: DiceDroppingStatistics) {
+        dataStore.bestGameSetArray.remove(at: 1)
+        dataStore.bestGameSetArray.append(
+            .init(id: 1, bestRPSSet: 0,
+                  one: diceStats.onePercentage,
+                  two: diceStats.twoPercentage,
+                  three: diceStats.threePercentage,
+                  four: diceStats.fourPercentage,
+                  five: diceStats.fivePercentage,
+                  six: diceStats.sixPercentage))
+        var currentSnapshot = dataSource.snapshot()
+        currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .bestGameSets))
+        currentSnapshot.appendItems(dataStore.bestGameSetArray.map({ BestGameSetConfiguration in HistoryCollectionItem(content: .bestGameSet(configuration: BestGameSetConfiguration))
+        }), toSection: .bestGameSets)
+        currentSnapshot.reloadSections([.bestGameSets])
+        dataSource.apply(currentSnapshot)
+    }
+    
+    func displayRPSResult(result: [RPSResultModel]) {
+        dataStore.RPSHistoryArray.removeAll()
+        for result in result {
+            dataStore.RPSHistoryArray.append(.init(pcChoise: result.bot, personChoise: result.person, RPSResult: result.result))
+            var currentSnapshot = dataSource.snapshot()
+            currentSnapshot.deleteItems(currentSnapshot.itemIdentifiers(inSection: .RPSHistory))
+            currentSnapshot.appendItems(dataStore.RPSHistoryArray.map({ RPSSetConfiguration in HistoryCollectionItem(content: .RPSHistory(configuration: RPSSetConfiguration))
+            }), toSection: .RPSHistory)
+            currentSnapshot.reloadSections([.RPSHistory])
+            dataSource.apply(currentSnapshot)
+        }
     }
 }

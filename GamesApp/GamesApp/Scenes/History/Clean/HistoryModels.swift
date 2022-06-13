@@ -8,44 +8,41 @@
 import UIKit
 
 enum HistoryModels {
-    enum History {
-        struct Request {
-            struct Dice {}
-            struct Stats {}
-            struct RPS {}
-            struct BGSet {}
-        }
+    
+    enum DiceResult {
+        struct Request {}
         struct Response {
-            struct Dice {
-                var result: Numbers
-            }
-            struct Stats {
-                var diceStats: [Double]
-            }
-            struct RPS{
-                var person: String
-                var bot: String
-                var result: String
-            }
-            struct BGSet{
-                var result: Int
-            }
+            var result: [Numbers]
         }
         struct ViewModel {
-            struct Dice {
-                var result: Numbers
-            }
-            struct Stats {
-                var diceStats: [Double]
-            }
-            struct RPS{
-                var person: String
-                var bot: String
-                var result: String
-            }
-            struct BGSet{
-                var result: Int
-            }
+            var result: [Numbers]
+        }
+    }
+    enum DiceStats {
+        struct Request {}
+        struct Response {
+            var diceStats: DiceDroppingStatistics
+        }
+        struct ViewModel {
+            var diceStats: DiceDroppingStatistics
+        }
+    }
+    enum RPSResult {
+        struct Request {}
+        struct Response {
+            var RPSResult: [RPSResultModel]
+        }
+        struct ViewModel {
+            var RPSResult: [RPSResultModel]
+        }
+    }
+    enum RPSBestSet {
+        struct Request {}
+        struct Response {
+            var result: Int
+        }
+        struct ViewModel {
+            var result: Int
         }
     }
 }

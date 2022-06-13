@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  GamesApp
+
+  Created by xyz mac on 11.06.2022.
+  
+*/
+
+"Dice.Rolling.Title" = "Roll the dice";
+"Dice.Reverting.Title" = "Repeat";
+"Navigation.Dice" = "Dice Rolling";
+"Navigation.Settings" = "Settings";
+"RPS.Button" = "Play again";
+"Navigation.RPS" = "Rock Paper Scissors";
+"RPS.WinLabel.Tie" = "It's a tie😐";
+"RPS.WinLabel.Lost" = "You lost🥺";
+"RPS.WinLabel.Win" = "You won😎";
+"Settings.English" = "Set English language";
+"Settings.TieMode" = "Enable tie";
+"Navigation.History" = "History";
+"History.Headers.Statistics" = "Statistics";
+"History.Headers.RPSHistory" = "✊🏻✋🏻✌🏻 History";
+"History.Headers.DiceHistory" = "Dice rolling history";
+"History.RPSBestSet.Title" = "Highest number of wins in a row in ✊🏻✋🏻✌🏻";
+"History.RPSBestSet.SubTitle" = " wins in a row";
+"History.DiceStats.Title" = "Dice rolling statistics";
+"History.RPSHistory.Person" = "Your choise: ";
+"History.RPSHistory.Bot" = "Bot's choise: ";
+"History.RPSHistory.Result" = "Game result: ";
+"History.DiceHistory.Text" = "Game result: ";
