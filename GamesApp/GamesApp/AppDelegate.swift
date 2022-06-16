@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func applicationWillTerminate(_ application: UIApplication) {
+        AppData.RPSResult = []
+        AppData.diceResult = []
+        AppData.RPSBestSet = 0
+        AppData.diceStatistics = .init(onePercentage: 0, twoPercentage: 0, threePercentage: 0, fourPercentage: 0, fivePercentage: 0, sixPercentage: 0)
+    }
 }
 

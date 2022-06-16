@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  GamesApp
+
+  Created by xyz mac on 11.06.2022.
+  
+*/
+
+
+"Dice.Rolling.Title" = "Бросить кубик";
+"Dice.Reverting.Title" = "Повтор";
+"Navigation.Dice" = "Игральная кость";
+"Navigation.Settings" = "Настройки";
+"RPS.Button" = "Начать заново";
+"Navigation.RPS" = "Камень Ножницы Бумага";
+"RPS.WinLabel.Tie" = "Ничья😐";
+"RPS.WinLabel.Lost" = "Вы проиграли🥺";
+"RPS.WinLabel.Win" = "Вы победили😎";
+"Settings.English" = "Установить английский язык";
+"Settings.TieMode" = "Включить режим возможной ничьи";
+"Navigation.History" = "История";
+"History.Headers.Statistics" = "Статистика";
+"History.Headers.RPSHistory" = "История игры в ✊🏻✋🏻✌🏻";
+"History.Headers.DiceHistory" = "История бросков кубика";
+"History.RPSBestSet.Title" = "Лучший сет выигранных раундов в игре ✊🏻✋🏻✌🏻";
+"History.RPSBestSet.SubTitle" = " побед подряд";
+"History.RPSHistory.Person" = "Ваш выбор: ";
+"History.RPSHistory.Bot" = "Выбор бота: ";
+"History.RPSHistory.Result" = "Результат игры: ";
+"History.DiceHistory.Text" = "Результат игры: ";
+"History.DiceStats.Title" = "Статистика выброшенных кубиков";

@@ -23,15 +23,43 @@
 		522993F427F45D150032279A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F327F45D150032279A /* TabBarController.swift */; };
 		522993F627F45D710032279A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F527F45D710032279A /* NavigationController.swift */; };
 		522993F827F45DB50032279A /* RPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F727F45DB50032279A /* RPSViewController.swift */; };
-		522993FA27F45E190032279A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F927F45E190032279A /* GameViewController.swift */; };
+		522993FA27F45E190032279A /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522993F927F45E190032279A /* DiceViewController.swift */; };
 		5229940427F58F560032279A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940327F58F550032279A /* SettingsViewController.swift */; };
-		5229940827F860EA0032279A /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229940727F860EA0032279A /* Dictionaries.swift */; };
 		5237DB162817052400FE5802 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB132817052400FE5802 /* RocketViewController.swift */; };
 		5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB142817052400FE5802 /* RocketViewExtension.swift */; };
 		5237DB182817052400FE5802 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237DB152817052400FE5802 /* RocketView.swift */; };
+		526AA477284CCF9E0056F600 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA476284CCF9E0056F600 /* HistoryInteractor.swift */; };
+		526AA479284CCFD20056F600 /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA478284CCFD20056F600 /* HistoryModels.swift */; };
+		526AA47B284CCFE60056F600 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47A284CCFE60056F600 /* HistoryPresenter.swift */; };
+		526AA47D284CD05C0056F600 /* RPSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47C284CD05C0056F600 /* RPSRouter.swift */; };
+		526AA47F284CD0850056F600 /* RPSWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA47E284CD0850056F600 /* RPSWorker.swift */; };
+		526AA481284CD09E0056F600 /* RPSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA480284CD09E0056F600 /* RPSInteractor.swift */; };
+		526AA483284CD11D0056F600 /* RPSPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA482284CD11D0056F600 /* RPSPresenter.swift */; };
+		526AA485284CD13D0056F600 /* RPSModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA484284CD13D0056F600 /* RPSModels.swift */; };
+		526AA489284CD1B10056F600 /* DiceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA488284CD1B10056F600 /* DiceWorker.swift */; };
+		526AA48B284CD1C90056F600 /* DiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48A284CD1C90056F600 /* DiceInteractor.swift */; };
+		526AA48D284CD1E00056F600 /* DiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48C284CD1E00056F600 /* DiceModels.swift */; };
+		526AA48F284CD1F20056F600 /* DicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA48E284CD1F20056F600 /* DicePresenter.swift */; };
+		526AA491284CD2440056F600 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA490284CD2440056F600 /* SettingsInteractor.swift */; };
+		526AA493284CD2580056F600 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA492284CD2580056F600 /* SettingsPresenter.swift */; };
+		526AA497284CD2800056F600 /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AA496284CD2800056F600 /* SettingsModels.swift */; };
+		52D6EE8D2854A516008025C4 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6EE8C2854A516008025C4 /* Numbers.swift */; };
+		52D6EE902854DD43008025C4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52D6EE922854DD43008025C4 /* Localizable.strings */; };
+		52E5DA8D2855F93300794509 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA8C2855F93300794509 /* Objects.swift */; };
+		52E5DA8F2855FF3F00794509 /* DiceStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA8E2855FF3F00794509 /* DiceStatistics.swift */; };
+		52E5DA912856150700794509 /* HistorySections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA902856150700794509 /* HistorySections.swift */; };
+		52E5DA9328561E6500794509 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA9228561E6500794509 /* Languages.swift */; };
+		52E5DA952856485E00794509 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA942856485E00794509 /* UserDefaults.swift */; };
+		52E5DA98285648C700794509 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DA97285648C700794509 /* Default.swift */; };
+		52E5DAA828569FC200794509 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 52E5DAA728569FC200794509 /* swiftgen.yml */; };
+		52E5DAAA2856A03B00794509 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 52E5DAA92856A03B00794509 /* Podfile */; };
+		52E5DAAC2856A42D00794509 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DAAB2856A42D00794509 /* Strings.swift */; };
+		52E5DAAF2857575500794509 /* RPSResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5DAAE2857575500794509 /* RPSResultModel.swift */; };
+		80D935C9C7F8B6A9A506EBEE /* Pods_GamesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D780585B4C8108FE1B32A0 /* Pods_GamesApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A2D4AB0B4C84719C7A7813B /* Pods-GamesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamesApp.release.xcconfig"; path = "Target Support Files/Pods-GamesApp/Pods-GamesApp.release.xcconfig"; sourceTree = "<group>"; };
 		52107F952807FEDF008B642F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		52107F9B280801EA008B642F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		52107F9D280803DF008B642F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -50,12 +78,41 @@
 		522993F327F45D150032279A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		522993F527F45D710032279A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		522993F727F45DB50032279A /* RPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSViewController.swift; sourceTree = "<group>"; };
-		522993F927F45E190032279A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		522993F927F45E190032279A /* DiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		5229940327F58F550032279A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		5229940727F860EA0032279A /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		5237DB132817052400FE5802 /* RocketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
 		5237DB142817052400FE5802 /* RocketViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketViewExtension.swift; sourceTree = "<group>"; };
 		5237DB152817052400FE5802 /* RocketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
+		526AA476284CCF9E0056F600 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		526AA478284CCFD20056F600 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
+		526AA47A284CCFE60056F600 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		526AA47C284CD05C0056F600 /* RPSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSRouter.swift; sourceTree = "<group>"; };
+		526AA47E284CD0850056F600 /* RPSWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSWorker.swift; sourceTree = "<group>"; };
+		526AA480284CD09E0056F600 /* RPSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSInteractor.swift; sourceTree = "<group>"; };
+		526AA482284CD11D0056F600 /* RPSPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSPresenter.swift; sourceTree = "<group>"; };
+		526AA484284CD13D0056F600 /* RPSModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSModels.swift; sourceTree = "<group>"; };
+		526AA488284CD1B10056F600 /* DiceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceWorker.swift; sourceTree = "<group>"; };
+		526AA48A284CD1C90056F600 /* DiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceInteractor.swift; sourceTree = "<group>"; };
+		526AA48C284CD1E00056F600 /* DiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceModels.swift; sourceTree = "<group>"; };
+		526AA48E284CD1F20056F600 /* DicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePresenter.swift; sourceTree = "<group>"; };
+		526AA490284CD2440056F600 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		526AA492284CD2580056F600 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		526AA496284CD2800056F600 /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
+		52D6EE8C2854A516008025C4 /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		52D6EE912854DD43008025C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52D6EE932854DD79008025C4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52E5DA8C2855F93300794509 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		52E5DA8E2855FF3F00794509 /* DiceStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceStatistics.swift; sourceTree = "<group>"; };
+		52E5DA902856150700794509 /* HistorySections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySections.swift; sourceTree = "<group>"; };
+		52E5DA9228561E6500794509 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		52E5DA942856485E00794509 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		52E5DA97285648C700794509 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
+		52E5DAA728569FC200794509 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		52E5DAA92856A03B00794509 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		52E5DAAB2856A42D00794509 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		52E5DAAE2857575500794509 /* RPSResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSResultModel.swift; sourceTree = "<group>"; };
+		B0D780585B4C8108FE1B32A0 /* Pods_GamesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GamesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2498336BB2A2950607F119C /* Pods-GamesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamesApp.debug.xcconfig"; path = "Target Support Files/Pods-GamesApp/Pods-GamesApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,35 +120,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D935C9C7F8B6A9A506EBEE /* Pods_GamesApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52107F97280800A6008B642F /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				52107FAD280AACF7008B642F /* Data */,
-				52107F98280800BC008B642F /* Controller */,
-			);
-			path = Games;
-			sourceTree = "<group>";
-		};
-		52107F98280800BC008B642F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				522993F727F45DB50032279A /* RPSViewController.swift */,
-				522993F927F45E190032279A /* GameViewController.swift */,
-				5229940327F58F550032279A /* SettingsViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		52107F992808016D008B642F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				52107F9B280801EA008B642F /* HistoryView.swift */,
+				52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */,
+				52E5DA902856150700794509 /* HistorySections.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,46 +150,36 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
-		52107FA3280832F1008B642F /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				52107FA42808331A008B642F /* CollectionViewLayoutFactory.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		52107FAB280AAC69008B642F /* History */ = {
 			isa = PBXGroup;
 			children = (
-				52107FAC280AACAE008B642F /* Controller */,
+				52107FAC280AACAE008B642F /* Clean */,
 				52107F992808016D008B642F /* View */,
-				52107FA3280832F1008B642F /* UIKit */,
 				52107F9A280801B0008B642F /* DataStore */,
 			);
 			path = History;
 			sourceTree = "<group>";
 		};
-		52107FAC280AACAE008B642F /* Controller */ = {
+		52107FAC280AACAE008B642F /* Clean */ = {
 			isa = PBXGroup;
 			children = (
 				52107F952807FEDF008B642F /* HistoryViewController.swift */,
+				526AA476284CCF9E0056F600 /* HistoryInteractor.swift */,
+				526AA478284CCFD20056F600 /* HistoryModels.swift */,
+				526AA47A284CCFE60056F600 /* HistoryPresenter.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		52107FAD280AACF7008B642F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				5229940727F860EA0032279A /* Dictionaries.swift */,
-			);
-			path = Data;
+			path = Clean;
 			sourceTree = "<group>";
 		};
 		522993D327F37ACA0032279A = {
 			isa = PBXGroup;
 			children = (
+				52E5DAA92856A03B00794509 /* Podfile */,
+				52E5DAA728569FC200794509 /* swiftgen.yml */,
 				522993DE27F37ACA0032279A /* GamesApp */,
 				522993DD27F37ACA0032279A /* Products */,
+				52E5DA9A285694A200794509 /* Frameworks */,
+				52E2A6D989A7B89F87D2AF5A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,12 +194,14 @@
 		522993DE27F37ACA0032279A /* GamesApp */ = {
 			isa = PBXGroup;
 			children = (
+				52E5DAA028569A5400794509 /* Generated */,
+				52E5DA96285648AB00794509 /* Defaults */,
 				5237DB122817052300FE5802 /* Rocket */,
-				52107FAB280AAC69008B642F /* History */,
-				52107F97280800A6008B642F /* Games */,
+				526AA46E284CCEEE0056F600 /* Scenes */,
 				522993DF27F37ACA0032279A /* AppDelegate.swift */,
 				522993E127F37ACA0032279A /* SceneDelegate.swift */,
 				522993E827F37ACD0032279A /* Assets.xcassets */,
+				52D6EE922854DD43008025C4 /* Localizable.strings */,
 				522993EA27F37ACD0032279A /* LaunchScreen.storyboard */,
 				522993ED27F37ACD0032279A /* Info.plist */,
 				522993F327F45D150032279A /* TabBarController.swift */,
@@ -187,6 +220,108 @@
 			path = Rocket;
 			sourceTree = "<group>";
 		};
+		526AA46E284CCEEE0056F600 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				52107FAB280AAC69008B642F /* History */,
+				526AA46F284CCF010056F600 /* RPS */,
+				526AA470284CCF090056F600 /* Dice */,
+				526AA471284CCF100056F600 /* Settings */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		526AA46F284CCF010056F600 /* RPS */ = {
+			isa = PBXGroup;
+			children = (
+				52E5DAAD2857573500794509 /* Models */,
+				522993F727F45DB50032279A /* RPSViewController.swift */,
+				526AA47C284CD05C0056F600 /* RPSRouter.swift */,
+				526AA47E284CD0850056F600 /* RPSWorker.swift */,
+				526AA480284CD09E0056F600 /* RPSInteractor.swift */,
+				526AA482284CD11D0056F600 /* RPSPresenter.swift */,
+				526AA484284CD13D0056F600 /* RPSModels.swift */,
+			);
+			path = RPS;
+			sourceTree = "<group>";
+		};
+		526AA470284CCF090056F600 /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				52E5DAB02857582F00794509 /* Model */,
+				522993F927F45E190032279A /* DiceViewController.swift */,
+				526AA488284CD1B10056F600 /* DiceWorker.swift */,
+				526AA48A284CD1C90056F600 /* DiceInteractor.swift */,
+				526AA48C284CD1E00056F600 /* DiceModels.swift */,
+				526AA48E284CD1F20056F600 /* DicePresenter.swift */,
+			);
+			path = Dice;
+			sourceTree = "<group>";
+		};
+		526AA471284CCF100056F600 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5229940327F58F550032279A /* SettingsViewController.swift */,
+				526AA490284CD2440056F600 /* SettingsInteractor.swift */,
+				526AA492284CD2580056F600 /* SettingsPresenter.swift */,
+				526AA496284CD2800056F600 /* SettingsModels.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		52E2A6D989A7B89F87D2AF5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2498336BB2A2950607F119C /* Pods-GamesApp.debug.xcconfig */,
+				4A2D4AB0B4C84719C7A7813B /* Pods-GamesApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		52E5DA96285648AB00794509 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				52E5DA942856485E00794509 /* UserDefaults.swift */,
+				52E5DA97285648C700794509 /* Default.swift */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
+		52E5DA9A285694A200794509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D780585B4C8108FE1B32A0 /* Pods_GamesApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52E5DAA028569A5400794509 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				52E5DAAB2856A42D00794509 /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		52E5DAAD2857573500794509 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52E5DA8C2855F93300794509 /* Objects.swift */,
+				52E5DAAE2857575500794509 /* RPSResultModel.swift */,
+				52E5DA9228561E6500794509 /* Languages.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52E5DAB02857582F00794509 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52D6EE8C2854A516008025C4 /* Numbers.swift */,
+				52E5DA8E2855FF3F00794509 /* DiceStatistics.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522993F027F37ACD0032279A /* Build configuration list for PBXNativeTarget "GamesApp" */;
 			buildPhases = (
+				CA698487984D2DB82EF00332 /* [CP] Check Pods Manifest.lock */,
 				522993D827F37ACA0032279A /* Sources */,
 				522993D927F37ACA0032279A /* Frameworks */,
 				522993DA27F37ACA0032279A /* Resources */,
+				52E5DAA428569F7800794509 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -229,6 +366,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 522993D327F37ACA0032279A;
 			productRefGroup = 522993DD27F37ACA0032279A /* Products */;
@@ -245,38 +383,106 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E5DAAA2856A03B00794509 /* Podfile in Resources */,
 				522993EC27F37ACD0032279A /* LaunchScreen.storyboard in Resources */,
+				52D6EE902854DD43008025C4 /* Localizable.strings in Resources */,
 				522993E927F37ACD0032279A /* Assets.xcassets in Resources */,
+				52E5DAA828569FC200794509 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52E5DAA428569F7800794509 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		CA698487984D2DB82EF00332 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GamesApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		522993D827F37ACA0032279A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526AA47D284CD05C0056F600 /* RPSRouter.swift in Sources */,
 				522993F427F45D150032279A /* TabBarController.swift in Sources */,
+				526AA47F284CD0850056F600 /* RPSWorker.swift in Sources */,
 				522993F627F45D710032279A /* NavigationController.swift in Sources */,
+				526AA483284CD11D0056F600 /* RPSPresenter.swift in Sources */,
 				522993F827F45DB50032279A /* RPSViewController.swift in Sources */,
-				5229940827F860EA0032279A /* Dictionaries.swift in Sources */,
+				526AA48F284CD1F20056F600 /* DicePresenter.swift in Sources */,
+				526AA47B284CCFE60056F600 /* HistoryPresenter.swift in Sources */,
 				52107F9E280803DF008B642F /* DataStore.swift in Sources */,
+				52E5DA98285648C700794509 /* Default.swift in Sources */,
 				52107FA52808331A008B642F /* CollectionViewLayoutFactory.swift in Sources */,
+				526AA485284CD13D0056F600 /* RPSModels.swift in Sources */,
 				522993E027F37ACA0032279A /* AppDelegate.swift in Sources */,
-				522993FA27F45E190032279A /* GameViewController.swift in Sources */,
+				522993FA27F45E190032279A /* DiceViewController.swift in Sources */,
+				52D6EE8D2854A516008025C4 /* Numbers.swift in Sources */,
+				526AA493284CD2580056F600 /* SettingsPresenter.swift in Sources */,
+				52E5DA9328561E6500794509 /* Languages.swift in Sources */,
+				526AA48B284CD1C90056F600 /* DiceInteractor.swift in Sources */,
+				526AA477284CCF9E0056F600 /* HistoryInteractor.swift in Sources */,
 				52107F962807FEDF008B642F /* HistoryViewController.swift in Sources */,
 				52107F9C280801EA008B642F /* HistoryView.swift in Sources */,
+				526AA479284CCFD20056F600 /* HistoryModels.swift in Sources */,
+				526AA48D284CD1E00056F600 /* DiceModels.swift in Sources */,
 				5237DB182817052400FE5802 /* RocketView.swift in Sources */,
 				5237DB172817052400FE5802 /* RocketViewExtension.swift in Sources */,
+				52E5DA8F2855FF3F00794509 /* DiceStatistics.swift in Sources */,
 				52107FA028082D18008B642F /* BestGameSetConfiguration.swift in Sources */,
+				52E5DA8D2855F93300794509 /* Objects.swift in Sources */,
 				522993E227F37ACA0032279A /* SceneDelegate.swift in Sources */,
 				52107FA228082EB9008B642F /* HistoryCollectionItem.swift in Sources */,
+				526AA481284CD09E0056F600 /* RPSInteractor.swift in Sources */,
+				526AA489284CD1B10056F600 /* DiceWorker.swift in Sources */,
+				52E5DAAC2856A42D00794509 /* Strings.swift in Sources */,
 				5229940427F58F560032279A /* SettingsViewController.swift in Sources */,
+				52E5DA952856485E00794509 /* UserDefaults.swift in Sources */,
+				52E5DA912856150700794509 /* HistorySections.swift in Sources */,
 				5237DB162817052400FE5802 /* RocketViewController.swift in Sources */,
 				52107FB7280D7D6B008B642F /* HeaderCollectionReusableView.swift in Sources */,
 				52107FAA28097E5C008B642F /* DiceSetConfiguration.swift in Sources */,
 				52107FA728089F0E008B642F /* RPSConfiguration.swift in Sources */,
+				52E5DAAF2857575500794509 /* RPSResultModel.swift in Sources */,
+				526AA497284CD2800056F600 /* SettingsModels.swift in Sources */,
+				526AA491284CD2440056F600 /* SettingsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +497,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		52D6EE922854DD43008025C4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D6EE912854DD43008025C4 /* en */,
+				52D6EE932854DD79008025C4 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -298,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -359,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -412,6 +629,7 @@
 		};
 		522993F127F37ACD0032279A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2498336BB2A2950607F119C /* Pods-GamesApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,6 +657,7 @@
 		};
 		522993F227F37ACD0032279A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A2D4AB0B4C84719C7A7813B /* Pods-GamesApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
